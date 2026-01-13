@@ -1,0 +1,52 @@
+{
+  "folders": [
+    {
+      "name": "70 • ASP EMEDWEB",
+      "path": "emed-web"
+    }
+  ],
+  "settings": {
+    "files.encoding": "windows1252",
+    "git.enabled": true,
+    "git.branchProtection": [
+      "master",
+      "develop"
+    ],
+    "git.repositoryScanIgnoredFolders": true,
+    "workbench.iconTheme": "vscode-icons",
+    "files.exclude": {
+      "**/.git": true,
+      "**/.vs": true,
+      "**/.vscode": false,
+      "**/bin": true,
+      "**/obj": true,
+      "**/Debug": true,
+      "**/net8.0": true,
+      "**/*.dll": true,
+      "**/*.pdb": true,
+      "**/*.exe": true,
+      "**/*.zip": true,
+      "**/*.rar": true
+    },
+    "search.exclude": {
+      "**/bin": true,
+      "**/obj": true,
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/vb-vbp-xxxxxxxxxxxxx": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "ritwickdey.liveserver",
+      "ms-vscode.vscode-typescript-next",
+      "ms-azuretools.vscode-docker",
+      "formulahendry.code-runner",
+      "donjayamanne.githistory",
+      "eamodio.gitlens",
+      "PKief.material-icon-theme",
+      "ms-dotnettools.csdevkit",
+      "alefragnani.project-manager"
+    ]
+  }
+}

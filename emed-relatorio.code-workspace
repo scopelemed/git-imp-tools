@@ -1,0 +1,159 @@
+{
+  "folders": [
+    {
+      "name": "61 • Relatorio Financeiro Comprovante",
+      "path": "emed-relatorios/rel-LEFIN_Financeiro_Comprovante"
+    },
+    {
+      "name": "61 • Relatorio Financeiro MovCaixaAnaliticoByConta",
+      "path": "emed-relatorios/rel-LEFIN_RelMovCaixaAnaliticoByConta"
+    },
+    {
+      "name": "62 • Relatorio Agendamento AgendamentoResumido",
+      "path": "emed-relatorios/rel-LEMED_Agendamento_RelAgendamentoResumido"
+    },
+    {
+      "name": "63 • Relatorio FaturaConvenio FaturaConvenio",
+      "path": "emed-relatorios/rel-LEMED_FaturaConvenio_RelFaturaConvenio"
+    },
+    {
+      "name": "63 • Relatorio FaturaConvenio FaturaConvenioPaciente",
+      "path": "emed-relatorios/rel-LEMED_FaturaConvenio_RelFaturaConvenioPaciente"
+    },
+    {
+      "name": "64 • Relatorio Requisicao GuiaTissConsultaV3",
+      "path": "emed-relatorios/rel-LEMED_Requisicao_GuiaTissConsulta_v3"
+    },
+    {
+      "name": "64 • Relatorio Requisicao GuiaTissConsultaV4",
+      "path": "emed-relatorios/rel-LEMED_Requisicao_GuiaTissConsulta_v4"
+    },
+    {
+      "name": "65 • Relatorio Estoque PosicaoEstoque",
+      "path": "emed-relatorios/rel-LESTQ_MovEstoque_PosicaoEstoque"
+    },
+    {
+      "name": "65 • Relatorio Estoque ListaSaldos",
+      "path": "emed-relatorios/rel-LESTQ_MovEstoqueListaSaldos"
+    },
+    {
+      "name": "66 • Relatorio Pessoa ListagemGeral",
+      "path": "emed-relatorios/rel-LNUC_Pessoa_ListagemGeral"
+    }
+  ],
+  "settings": {
+    "files.encoding": "windows1252",
+    "workbench.iconTheme": "vscode-icons",
+    "git.enabled": true,
+    "git.branchProtection": [
+      "master",
+      "develop"
+    ],
+    "git.repositoryScanIgnoredFolders": true,
+    "files.associations": {
+      "*.dsr": "vb",
+      "*.dsx": "vb",
+      "*.vbp": "ini",
+      "*.vbs": "vbscript",
+      "*.rpx": "xml"
+    },
+    "files.exclude": {
+      "**/.git": true,
+      "**/.vs": true,
+      "**/.vscode": false,
+      "**/bin": true,
+      "**/obj": true,
+      "**/Debug": true,
+      "**/*.dll": true,
+      "**/*.pdb": true,
+      "**/*.exe": true,
+      "**/*.zip": true
+    },
+    "search.exclude": {
+      "**/bin": true,
+      "**/obj": true,
+      "**/node_modules": true,
+      "**/dist": true
+    },
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [
+      100
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "slevesque.vscode-autotag",
+      "DotJoshJohnson.xml",
+      "taoklerks.vscode-rpxtools",
+      "spences10.vscode-vba",
+      "timonwong.shellcheck",
+      "ms-vscode.powershell",
+      "alefragnani.project-manager",
+      "eamodio.gitlens",
+      "donjayamanne.githistory",
+      "PKief.material-icon-theme"
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "VB6: Build projeto selecionado (.vbp)",
+        "type": "process",
+        "command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\VB98\\VB6.EXE",
+        "args": [
+          "/make",
+          "${input:vbpPath}"
+        ],
+        "problemMatcher": [],
+        "detail": "Compila um projeto VB6 usando o VB6.EXE /make"
+      },
+      {
+        "label": "ActiveReports: Render RPX → PDF (via cscript)",
+        "type": "process",
+        "command": "cscript.exe",
+        "args": [
+          "//nologo",
+          "${workspaceFolder:70 • EMED-RELATÓRIOS (root)}\\scripts\\render-rpx.vbs",
+          "${input:rpxPath}",
+          "${input:pdfPath}"
+        ],
+        "problemMatcher": [],
+        "detail": "Executa um script VBS que carrega um RPX e exporta para PDF"
+      }
+    ],
+    "inputs": [
+      {
+        "id": "vbpPath",
+        "type": "pickString",
+        "description": "Escolha o arquivo .vbp do relatório",
+        "options": [
+          "${workspaceFolder:71 • rel-LEFIN_Financeiro_Comprovante}\\rel-LEFIN_Financeiro_Comprovante.vbp",
+          "${workspaceFolder:71 • rel-LEFIN_RelMovCaixaAnaliticoByConta}\\rel-LEFIN_RelMovCaixaAnaliticoByConta.vbp",
+          "${workspaceFolder:71 • rel-LEMED_Agendamento_RelAgendamentoResumido}\\rel-LEMED_Agendamento_RelAgendamentoResumido.vbp",
+          "${workspaceFolder:71 • rel-LEMED_FaturaConvenio_RelFaturaConvenio}\\rel-LEMED_FaturaConvenio_RelFaturaConvenio.vbp",
+          "${workspaceFolder:71 • rel-LEMED_FaturaConvenio_RelFaturaConvenioPaciente}\\rel-LEMED_FaturaConvenio_RelFaturaConvenioPaciente.vbp",
+          "${workspaceFolder:71 • rel-LEMED_Requisicao_GuiaTissConsulta_v3}\\rel-LEMED_Requisicao_GuiaTissConsulta_v3.vbp",
+          "${workspaceFolder:71 • rel-LEMED_Requisicao_GuiaTissConsulta_v4}\\rel-LEMED_Requisicao_GuiaTissConsulta_v4.vbp",
+          "${workspaceFolder:71 • rel-LESTQ_MovEstoque_PosicaoEstoque}\\rel-LESTQ_MovEstoque_PosicaoEstoque.vbp",
+          "${workspaceFolder:71 • rel-LESTQ_MovEstoqueListaSaldos}\\rel-LESTQ_MovEstoqueListaSaldos.vbp",
+          "${workspaceFolder:71 • rel-LNUC_Pessoa_ListagemGeral}\\rel-LNUC_Pessoa_ListagemGeral.vbp"
+        ]
+      },
+      {
+        "id": "rpxPath",
+        "type": "promptString",
+        "description": "Caminho do arquivo .rpx (relativo ao workspace ou absoluto)",
+        "default": "${workspaceFolder:70 • EMED-RELATÓRIOS (root)}\\rel-LEFIN_Financeiro_Comprovante\\Financeiro_Comprovante.rpx"
+      },
+      {
+        "id": "pdfPath",
+        "type": "promptString",
+        "description": "Destino do PDF",
+        "default": "${workspaceFolder:70 • EMED-RELATÓRIOS (root)}\\out\\Financeiro_Comprovante.pdf"
+      }
+    ]
+  }
+}

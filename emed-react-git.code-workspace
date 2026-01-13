@@ -1,0 +1,162 @@
+{
+  "folders": [
+    {
+      "name": "72 • Net EMEDAPI",
+      "path": "emed-dotnet/.net-emedapi"
+    },
+    {
+      "name": "73 • React Prontuario",
+      "path": "emed-react/emedclin-react"
+    }
+  ],
+  "settings": {
+    "files.encoding": "windows1252",
+    "git.enabled": true,
+    "git.branchProtection": [
+      "master",
+      "develop"
+    ],
+    "git.repositoryScanIgnoredFolders": true,
+    "workbench.iconTheme": "vscode-icons",
+    "files.exclude": {
+      "**/.git": true,
+      "**/.vs": true,
+      "**/.vscode": false,
+      "**/bin": true,
+      "**/obj": true,
+      "**/Debug": true,
+      "**/*.dll": true,
+      "**/*.pdb": true,
+      "**/*.exe": true,
+      "**/*.zip": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/build": true,
+      "**/.next": true,
+      "**/.turbo": true,
+      "**/coverage": true,
+      "**/bin": true,
+      "**/obj": true
+    },
+    "dotnet.preferCSharpExtension": true,
+    "omnisharp.useModernNet": true,
+    "omnisharp.useGlobalMono": "never",
+    "omnisharp.enableMsBuildLoadProjectsOnDemand": true,
+    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.enableRoslynAnalyzers": false,
+    "omnisharp.loggingLevel": "information",
+    "typescript.tsdk": "emed-react-git/node_modules/typescript/lib",
+    "typescript.tsserver.maxTsServerMemory": 3072,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+    ],
+    "eslint.useFlatConfig": true,
+    "prettier.requireConfig": false,
+    "npm.enableRunFromFolder": true
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-dotnettools.csharp",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "ms-vscode.vscode-typescript-next",
+      "bradlc.vscode-tailwindcss",
+      "ms-playwright.playwright",
+      "eamodio.gitlens",
+      "donjayamanne.githistory",
+      "ms-vscode.powershell",
+      "ms-azuretools.vscode-docker",
+      "PKief.material-icon-theme",
+      "alefragnani.project-manager"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "React: Open in Chrome (http://localhost:3000)",
+        "type": "pwa-chrome",
+        "request": "launch",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder:73 • React Prontuario}"
+      }
+    ],
+    "compounds": [
+      {
+        "name": "🚀 Start React (npm start)",
+        "configurations": [
+          "React: Open in Chrome (http://localhost:3000)"
+        ],
+        "preLaunchTask": "npm: start (React Prontuario)"
+      }
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "npm: install (React Prontuario)",
+        "type": "npm",
+        "script": "install",
+        "path": "emed-react-git",
+        "detail": "Instala dependências do React (emed-react-git)"
+      },
+      {
+        "label": "npm: start (React Prontuario)",
+        "type": "npm",
+        "script": "start",
+        "path": "emed-react-git",
+        "problemMatcher": [],
+        "isBackground": true,
+        "detail": "Start do dev-server React em http://localhost:3000"
+      },
+      {
+        "label": "npm: test (React Prontuario)",
+        "type": "npm",
+        "script": "test",
+        "path": "emed-react-git",
+        "problemMatcher": "$jest-stare",
+        "detail": "Roda testes do React"
+      },
+      {
+        "label": "msbuild: Restore+Build eMedAPI (Debug)",
+        "type": "process",
+        "command": "msbuild",
+        "args": [
+          "eMedAPI.sln",
+          "/t:Restore,Build",
+          "/p:Configuration=Debug"
+        ],
+        "options": {
+          "cwd": "emed-dotnet/.net-emedapi"
+        },
+        "problemMatcher": "$msCompile",
+        "detail": "Build da solução da API usando MSBuild (Debug)"
+      },
+      {
+        "label": "msbuild: Build eMedAPI (Release)",
+        "type": "process",
+        "command": "msbuild",
+        "args": [
+          "eMedAPI.sln",
+          "/t:Build",
+          "/p:Configuration=Release"
+        ],
+        "options": {
+          "cwd": "emed-dotnet/.net-emedapi"
+        },
+        "problemMatcher": "$msCompile",
+        "detail": "Build Release da API usando MSBuild"
+      }
+    ]
+  }
+}

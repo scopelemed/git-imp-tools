@@ -1,0 +1,60 @@
+{
+  "folders": [
+    {
+      "name": "11 • Framework",
+      "path": "emed-dotnet/.net-emedframework"
+    }
+  ],
+  "settings": {
+    "files.encoding": "windows1252",
+    "git.enabled": true,
+    "git.branchProtection": [
+      "master",
+      "develop"
+    ],
+    "git.repositoryScanIgnoredFolders": true,
+    "workbench.iconTheme": "vscode-icons",
+    "files.exclude": {
+      "**/.git": true,
+      "**/.vs": true,
+      "**/.vscode": false,
+      "**/bin": true,
+      "**/obj": true,
+      "**/Debug": true,
+      "**/*.dll": true,
+      "**/*.pdb": true,
+      "**/*.exe": true,
+      "**/*.zip": true
+    },
+    "search.exclude": {
+      "**/bin": true,
+      "**/obj": true,
+      "**/node_modules": true,
+      "**/dist": true
+    },
+    "dotnet.preferCSharpExtension": true,
+    "omnisharp.useModernNet": true,
+    "omnisharp.useGlobalMono": "never",
+    "omnisharp.enableMsBuildLoadProjectsOnDemand": true,
+    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.enableRoslynAnalyzers": false,
+    "omnisharp.loggingLevel": "information",
+    "csharp.suppressDotnetInstallWarning": true,
+    "csharp.format.enable": true,
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "never"
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-dotnettools.csharp",
+      "ms-azuretools.vscode-docker",
+      "ms-vscode.powershell",
+      "donjayamanne.githistory",
+      "eamodio.gitlens",
+      "PKief.material-icon-theme",
+      "alefragnani.project-manager"
+    ]
+  }
+}

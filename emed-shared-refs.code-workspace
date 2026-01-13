@@ -1,0 +1,220 @@
+{
+  "folders": [
+		{
+      "name": "00 • Objetos BD",
+			"path": "emed-scripts/objetos-bd"
+		},
+		{
+      "name": "00 • Scripts BD",
+			"path": "emed-scripts/scripts-banco-dados"
+		},
+		{
+      "name": "01 • VB LIB",
+			"path": "emed-com/vb-lib"
+		},
+		{
+      "name": "01 • VB EMED-UTIL",
+			"path": "emed-com/vb-emed-util"
+		},
+		{
+      "name": "02 • VB EMED-ADM",
+			"path": "emed-com/vb-emed-adm"
+		},
+		{
+      "name": "02 • VB REPORT-SERVER",
+			"path": "emed-com/vb-report-server"
+		},
+		{
+      "name": "02 • VB GEMED",
+			"path": "emed-com/vb-gemed"
+		},
+		{
+      "name": "02 • VB GEMED-SERVIÇOS-ONLINE",
+			"path": "emed-com/vb-gemed-servicos-online"
+		},
+		{
+      "name": "02 • VB LNUC",
+			"path": "emed-com/vb-lnuc"
+		},
+		{
+      "name": "02 • VB LEFIN",
+			"path": "emed-com/vb-lefin"
+		},
+		{
+      "name": "02 • VB LESTQ",
+			"path": "emed-com/vb-lestq"
+		},
+		{
+      "name": "02 • VB LEXPORT",
+			"path": "emed-com/vb-lexport"
+		},
+		{
+      "name": "02 • VB LMCR",
+			"path": "emed-com/vb-lmcr"
+		},
+		{
+      "name": "02 • VB LMTR",
+			"path": "emed-com/vb-lmtr"
+		},
+		{
+      "name": "02 • VB LTAR",
+			"path": "emed-com/vb-ltar"
+		},
+		{
+      "name": "02 • VB LDOC",
+			"path": "emed-com/vb-ldoc"
+		},
+		{
+      "name": "02 • VB LDM-INTEGRAÇÃO",
+			"path": "emed-com/vb-ldm-integracao"
+		},
+		{
+      "name": "02 • VB LGPD",
+			"path": "emed-com/vb-lgpd"
+		},
+		{
+      "name": "02 • VB LINT",
+			"path": "emed-com/vb-lint"
+		},
+		{
+      "name": "02 • VB LEMED-CAD",
+			"path": "emed-com/vb-lemed-cad"
+		},
+		{
+      "name": "02 • VB LEMED-SIG",
+			"path": "emed-com/vb-lemed-sig"
+		},
+		{
+      "name": "02 • VB LEMED",
+			"path": "emed-com/vb-lemed"
+		}
+  ],
+  "settings": {
+    "files.encoding": "windows1252",
+    "workbench.iconTheme": "vscode-icons",
+    "git.enabled": true,
+    "git.branchProtection": [
+      "master",
+      "develop"
+    ],
+    "git.repositoryScanIgnoredFolders": true,
+    "files.associations": {
+      "*.dsr": "vb",
+      "*.dsx": "vb",
+      "*.vbp": "ini",
+      "*.vbs": "vb",
+      "*.bas": "vb",
+      "*.frm": "vb",
+      "*.cls": "vb",
+      "*.rpx": "xml",
+      "*.xsl": "xml",
+      "*.xslt": "xml"
+    },
+    "xml.validation.enabled": true,
+    "xml.format.splitAttributes": true,
+    "sql-formatter.dialect": "tsql",
+    "files.exclude": {
+      "**/.git": true,
+      "**/.vs": true,
+      "**/.vscode": false,
+      "**/bin": true,
+      "**/obj": true,
+      "**/Debug": true,
+      "**/*.dll": true,
+      "**/*.pdb": true,
+      "**/*.exe": true,
+      "**/*.zip": true
+    },
+    "search.exclude": {
+      "**/bin": true,
+      "**/obj": true,
+      "**/node_modules": true,
+      "**/dist": true
+    },
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [
+      100
+    ],
+    "[xml]": {
+      "editor.formatOnSave": true
+    },
+    "[vb]": {
+      "editor.formatOnSave": false
+    },
+    "[sql]": {
+      "editor.formatOnSave": false
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "redhat.vscode-xml",
+      "deltaxml.xslt-xpath",
+      "mtxr.sqltools",
+      "mtxr.sqltools-driver-mssql",
+      "adpyke.vscode-sql-formatter",
+      "spences10.vscode-vba",
+      "eamodio.gitlens",
+      "donjayamanne.githistory",
+      "ms-vscode.powershell",
+      "PKief.material-icon-theme",
+      "alefragnani.project-manager"
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "VB6: Build projeto selecionado (.vbp)",
+        "type": "process",
+        "command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\VB98\\VB6.EXE",
+        "args": [
+          "/make",
+          "${input:vbpPath}"
+        ],
+        "problemMatcher": [],
+        "detail": "Compila um projeto VB6 usando VB6.EXE /make"
+      },
+      {
+        "label": "XSLT: Transformar (msxsl.exe)",
+        "type": "process",
+        "command": "msxsl.exe",
+        "args": [
+          "${input:xmlPath}",
+          "${input:xslPath}",
+          "-o",
+          "${input:outXmlPath}"
+        ],
+        "problemMatcher": [],
+        "detail": "Transforma XML via msxsl.exe (legacy Win/MSXML)"
+      }
+    ],
+    "inputs": [
+      {
+        "id": "vbpPath",
+        "type": "promptString",
+        "description": "Caminho do arquivo .vbp (VB6)",
+        "default": "${workspaceFolder:01 • VB LIB}\\Projeto.vbp"
+      },
+      {
+        "id": "xmlPath",
+        "type": "promptString",
+        "description": "XML de entrada",
+        "default": "${workspaceFolder:00 • Objetos BD}\\samples\\entrada.xml"
+      },
+      {
+        "id": "xslPath",
+        "type": "promptString",
+        "description": "XSL/XSLT para transformação",
+        "default": "${workspaceFolder:00 • Objetos BD}\\xslt\\template.xsl"
+      },
+      {
+        "id": "outXmlPath",
+        "type": "promptString",
+        "description": "Arquivo de saída (XML/HTML/TXT conforme XSL)",
+        "default": "${workspaceFolder:00 • Objetos BD}\\out\\saida.xml"
+      }
+    ]
+  }
+}
