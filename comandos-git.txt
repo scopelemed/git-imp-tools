@@ -1,0 +1,145 @@
+#############################################################################################################################
+# Comandos básicos																											#
+#############################################################################################################################
+git clone url.git                           --> Clonar um repositório remoto
+git checkout -b "develop"                   --> Criar a branch "develop" no repositório local, e posiciona nele 
+git status                                  --> Recuperar nome e informações da branch local 
+git add .                                   --> Adicionar arquivos alterados na branch
+git commit -m "criação repositorio develop" --> Confirmar alterações com comentário
+git push 								    --> Enviar arquivos da branch local (origin) para a branch remota 
+git branch -d feature                       --> Excluir branch local
+git merge feature                          	--> Mesclar arquivos da branch "feature" na branch de origem (resolver conflitos)
+git merge --abort                           --> Descarta último merge
+
+#############################################################################################################################
+# Apagar um arquivo da branch remota																									#
+#############################################################################################################################
+ggit rm --cached LEMED.vbw				    			--> Remover arquivo
+git commit -m "msg"                         --> Comitar branch local
+git push                                    --> Atualizar branch remota
+
+
+#############################################################################################################################
+# Comandos para comparação																									#
+#############################################################################################################################
+git branch -a				    			--> Listar as branchs do repositório local
+git diff --name-only develop                --> Listar os arquivos da branch local que divergem da branch informada
+git log --name-only                         --> Listar informações e arquivos do ultimo commit
+
+#############################################################################################################################
+# Comandos para preservar uma alteração para uso posterior,																	#
+#############################################################################################################################
+git stash -m "alteracao_20230115"           --> Preservar alterações do repositório local, rara uso posterior e adicionar uma descrição a stash
+git stash show --name-only	 				--> Listar todos os arquivos modificados na alteração
+git stash pop                               --> Restaurar ultima alteração para branch local, e descarta essa alteração
+git stash apply                             --> Restaurar ultima alteração para branch local, sem descartar essa alteração
+git stash drop								--> Remover ultima alteração da lista de stashs
+
+git stash list								--> Listar cada uma das stash
+git stash show --name-only stash@{2}		--> Listar todos os arquivos modificados na alteração de indice {2}
+git stash pop stash@{2}						--> Restaurar alteração de indice {2} para branch local, e descarta essa alteração
+git stash apply --index 2                   --> Restaurar alteração de indice {2} para branch local, sem descartar essa alteração
+git stash drop stash@{3}		        	--> Remover alteração de indice {3} alteração da lista de stashs
+git checkout stash@{2} file.ext				--> Recuperar o arquivo file.ext da alteração de indice {2}
+
+#############################################################################################################################
+# Comandos configuração																										#
+#############################################################################################################################
+git config --global user.name "scopel"
+git config --global user.email scopel@emed.com.br
+
+1) elimina a necessidade de apontamento da origin para branch remota (Ex.: git push --set-upstream origin bugfix/1186074383)
+git config --global --add push.default current
+git config --global --add push.autoSetupRemote true
+
+#############################################################################################################################
+# Inicializando um prepositorio local e commitando no remoto            																										#
+#############################################################################################################################
+cd .net-[nomeprojeto]
+git init -b master
+git add .gitignore
+git commit -m "Inicializando .net-[nomeprojeto]" .net-solutions
+---> Criar repositorio vazio no git e copiar comandos com url 
+git remote add origin http://gitemed.emedrs.local:8080/git/Desenvolvedores/.net-[nomeprojeto].git
+git push -u origin master
+git checkout master
+git checkout -b develop
+git checkout add .
+git commit -m "Inicializando .net-[nomeprojeto]"
+git push -u origin develop
+
+#############################################################################################################################
+# Comandos avançados 																										#
+#############################################################################################################################
+1) --set-upstream							--> força o apontamento da origin para a branch remota no pull
+git push --set-upstream origin develop      --> Enviar arquivos da branch local (origin) para a branch remota, forçamento do apontamento
+git branch --set-upstream-to=develop origin --> força o apontamento da origin para a branch remota a qualquer momento
+
+#############################################################################################################################
+# Comandos atualização																										#
+#############################################################################################################################
+git fetch									--> Buscar todas as branchs remotas se aplicar. atualizar seu repositorio local
+git pull 									--> Aplicar alterações remotas na sua branch local (quando --set-upstream foi usado)
+git pull origin develop						--> Aplicar alterações remotas na sua branch local (quando --set-upstream não foi usado)
+
+#############################################################################################################################
+# Comandos para descarte das alterações																						#
+#############################################################################################################################
+git reset HEAD .			   				--> Remover arquivos adicionados no index (já ter usando git add)
+git reset								   	--> Remover arquivos adicionados no index
+git checkout --							   	--> Reverter todas as alterações em arquivos que estavam versionados
+git clean -f -d -x			   				--> Apagar todos os arquivos e diretórios criados
+
+#############################################################################################################################
+# Roteiro para separação de branchs																							#
+#############################################################################################################################
+	Ex.: a branch feature/branch_A possui alterações da "branch_A" e "branch_B"
+
+	1) posiciona na branch que contem todos os arquivos que serão separados
+		git checkout feature/branch_A
+	2) renomeia a "branch_A" para "branch_B"
+		git branch -m feature/branch_B
+	3) posiciona na branch que será raiz da nova "branch_A" que recebera os arquivos alvo
+		git checkout develop (master)
+	4) adiciona a nova "branch_A" e posiciona nela
+		git checkout -b feature/branch_A
+	5) lista as diferenças da "branch_A" e "branch_B"
+		git diff --name-only feature/branch_B
+	6) para cada arquivo alvo da "branch_B"
+		git checkout feature/branch_B "pasta/pasta/arquivo.xxx"
+	7) confirma alterações
+		git commit -m "descrição"
+		
+
+#############################################################################################################################
+# Roteiro para liberação de uma nova branch																					#
+#############################################################################################################################
+1) atualiza a branch de trabalho com a develop
+A partir da branch branch_id_wrike
+	1. Atualizar a branch a partir da develop
+		new pull request onde:
+			base: feature/branch_id_wrike
+			compare: develop
+	2. iniciar o processo de atualização
+		create pull request
+			mensagem: merge develop para branch branch_id_wrike
+		create pull request
+	3. confirmar a atualização
+		merge pull request
+			mensagem: [titulo_projeto_wrike]
+		confirm merge
+
+1) atualiza a develop com branch de trabalho
+A partir da mesma branch branch_id_wrike
+	4. Atualizar a develop a partir branch
+		new pull request onde:
+			base: develop
+			compare: feature/branch_id_wrike
+	5. iniciar o processo de atualização
+		create pull request
+			mensagem: merge da branch branch_id_wrike para develop
+	6. copiar link (url do pull request)
+		copira tarefa de publicação wrike
+
+
+

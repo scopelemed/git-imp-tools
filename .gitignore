@@ -358,5 +358,12 @@ react-theme-module/
 *.rar
 *.7z
 
+# Windows shortcuts (nao versionar)
+*.lnk
+
+# Repos/projetos filhos (nao versionar no repo raiz)
+emed-aep/
+emed-aspnet/
+
 # Blindagem extra: ignorar qualquer pasta .git dentro de subpastas (evita vazar metadados)
 **/.git/
