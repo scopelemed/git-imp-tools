@@ -365,5 +365,8 @@ react-theme-module/
 emed-aep/
 emed-aspnet/
 
+# Backups temporarios de scripts (nao versionar)
+emed-scripts/scripts-temp-bkp/
+
 # Blindagem extra: ignorar qualquer pasta .git dentro de subpastas (evita vazar metadados)
 **/.git/
