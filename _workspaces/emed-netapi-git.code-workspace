@@ -1,0 +1,104 @@
+{
+  "folders": [
+    {
+      "name": "10 • Standard",
+      "path": "../emed-dotnet/.net-emedstandard"
+    },
+    {
+      "name": "11 • Framework",
+      "path": "../emed-dotnet/.net-emedframework"
+    },
+    {
+      "name": "20 • ServicesCom",
+      "path": "../emed-dotnet/.net-emedservicescom"
+    },
+    {
+      "name": "21 • Services",
+      "path": "../emed-dotnet/.net-emedservices"
+    },
+    {
+      "name": "30 • PKI",
+      "path": "../emed-dotnet/.net-emedpki"
+    },
+    {
+      "name": "40 • EmiteNFSeService",
+      "path": "../emed-dotnet/.net-emedemitenfeservice"
+    },
+    {
+      "name": "41 • DisplayService",
+      "path": "../emed-dotnet/.net-emeddisplayservice"
+    },
+    {
+      "name": "42 • ElosService",
+      "path": "../emed-dotnet/.net-emedelosservice"
+    },
+    {
+      "name": "43 • AnnaService",
+      "path": "../emed-dotnet/.net-emedannaservice"
+    },
+    {
+      "name": "44 • SivoeService",
+      "path": "../emed-dotnet/.net-emedsivoeservice"
+    },
+    {
+      "name": "50 • SMS",
+      "path": "../emed-dotnet/.net-emedsms"
+    },
+    {
+      "name": "72 • Net EMEDAPI",
+      "path": "../emed-dotnet/.net-emedapi"
+    }
+  ],
+  "settings": {
+    "files.encoding": "windows1252",
+    "git.enabled": true,
+    "git.branchProtection": [
+      "master",
+      "develop"
+    ],
+    "git.repositoryScanIgnoredFolders": true,
+    "workbench.iconTheme": "vscode-icons",
+    "files.exclude": {
+      "**/.git": true,
+      "**/.vs": true,
+      "**/.vscode": false,
+      "**/bin": true,
+      "**/obj": true,
+      "**/Debug": true,
+      "**/*.dll": true,
+      "**/*.pdb": true,
+      "**/*.exe": true,
+      "**/*.zip": true
+    },
+    "search.exclude": {
+      "**/bin": true,
+      "**/obj": true,
+      "**/node_modules": true,
+      "**/dist": true
+    },
+    "dotnet.preferCSharpExtension": true,
+    "omnisharp.useModernNet": true,
+    "omnisharp.useGlobalMono": "never",
+    "omnisharp.enableMsBuildLoadProjectsOnDemand": true,
+    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.enableRoslynAnalyzers": false,
+    "omnisharp.loggingLevel": "information",
+    "csharp.suppressDotnetInstallWarning": true,
+    "csharp.format.enable": true,
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "never"
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-dotnettools.csharp",
+      "eamodio.gitlens",
+      "donjayamanne.githistory",
+      "ms-vscode.powershell",
+      "ms-azuretools.vscode-docker",
+      "PKief.material-icon-theme",
+      "alefragnani.project-manager"
+    ]
+  }
+}

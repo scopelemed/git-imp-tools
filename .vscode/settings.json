@@ -1,0 +1,184 @@
+{
+    "git.confirmSync": true,
+    "git.autofetch": true,
+    "files.autoSave": "onWindowChange",
+    "files.encoding": "windows1252",
+    "[sql]": {
+
+        "editor.defaultFormatter": "mtxr.sqltools"
+    },
+    "mssql.connections": [
+        {
+            "server": "emedserverbd",
+            "database": "EMED_0000",
+            "user": "usrEMED_000000",
+            "password": "",
+            "authenticationType": "SqlLogin",
+            "savePassword": true,
+            "groupFullName": "EMED",
+            "options": {
+                "encrypt": false
+            },
+            "id": "4385D770-9F29-4A04-976D-E834FC1FFBCA",
+            "groupId": "29E4E97C-5AD4-438B-A2B8-FDB6231EAA67"
+        },
+        {
+            "server": "emedserverbd",
+            "database": "LEMED_39",
+            "user": "usrEMED_003901",
+            "password": "",
+            "authenticationType": "SqlLogin",
+            "savePassword": true,
+            "groupFullName": "EMED",
+            "options": {
+                "encrypt": false
+            },
+            "id": "F0D572BD-B83A-456E-B9D4-8CA151A44277",
+            "groupId": "29E4E97C-5AD4-438B-A2B8-FDB6231EAA67"
+        },
+        {
+            "server": "emedserverbd",
+            "database": "LEMED_39",
+            "user": "usrEMED_008001",
+            "password": "",
+            "authenticationType": "SqlLogin",
+            "savePassword": true,
+            "groupFullName": "EMED",
+            "options": {
+                "encrypt": false
+            },
+            "id": "8CC02AC4-CB24-4336-9CD9-BCB1C135270A",
+            "groupId": "29E4E97C-5AD4-438B-A2B8-FDB6231EAA67"
+        },
+        {
+            "server": "emedserverbd",
+            "database": "LEMED_39",
+            "user": "usrEMED_012601",
+            "password": "",
+            "authenticationType": "SqlLogin",
+            "savePassword": true,
+            "groupFullName": "EMED",
+            "options": {
+                "encrypt": false
+            },
+            "id": "513425FE-1486-4AFB-83C3-6641BF0297DB",
+            "groupId": "29E4E97C-5AD4-438B-A2B8-FDB6231EAA67"
+        }
+    ],
+    "git-autoconfig.configList": [
+        {
+            "user.email": "scopel@emed.com.br",
+            "user.name": "scopel"
+        },
+        {
+            "user.email": "scopel@gmail.com",
+            "user.name": "heitorscopel"
+        }
+    ],
+    "workbench.startupEditor": "none",
+    "vsicons.presets.foldersAllDefaultIcon": true,
+    "git.ignoreRebaseWarning": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.accessibilitySupport": "off",
+    "xml.server.vmargs": "-Xmx128M",
+    "redhat.telemetry.enabled": true,
+    "oracledevtools.bookmarkFileFolder": "C:\\Users\\scopel\\Oracle\\oracle.oracledevtools",
+    "oracledevtools.download.otherFolder": "C:\\Users\\scopel\\downloads",
+    "oracledevtools.connectionConfiguration.configFilesFolder": "C:\\Users\\scopel\\Oracle\\network\\admin",
+    "oracledevtools.connectionConfiguration.walletFileFolder": "C:\\Users\\scopel\\Oracle\\network\\admin",
+    "editor.minimap.enabled": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.iconTheme": "vscode-icons",
+    "git.ignoreMissingGitWarning": true,
+    "dotnet.help.firstView": "gettingStarted",
+    "extensions.confirmedUriHandlerExtensionIds": [
+        "ms-dotnettools.dotnet-interactive-vscode",
+        "ms-dotnettools.vscode-dotnet-pack"
+    ],
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+    "liveServer.settings.CustomBrowser": "microsoft-edge",
+    "liveServer.settings.host": "localhost",
+    "git-graph.fileEncoding": "windows1252",
+    "mssql.saveAsCsv.encoding": "windows1252",
+    "FSharp.suggestGitignore": false,
+    "html-css-class-completion.HTMLLanguages": [
+
+        "html",
+        "vue",
+        "razor",
+        "blade",
+        "handlebars",
+        "twig",
+        "django-html",
+        "php",
+        "markdown",
+        "erb",
+        "ejs",
+        "svelte",
+        "asp"
+    ],
+    "html-css-class-completion.JavaScriptLanguages": [
+
+        "javascript",
+        "javascriptreact",
+        "typescriptreact"
+    ],
+    "tabnine.experimentalAutoImports": true,
+    "vscode-edge-devtools.webhintInstallNotification": true,
+    "workbench.editor.empty.hint": "hidden",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.largeFileOptimizations": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "mssql.enableRichExperiences": true,
+    "versionlens.cargo.http.strictSSL": null,
+    "[xml]": {
+        "editor.defaultFormatter": "DotJoshJohnson.xml"
+    },
+    "mssql.connectionGroups": [
+        {
+            "name": "ROOT",
+            "id": "29E4E97C-5AD4-438B-A2B8-FDB6231EAA67"
+        }
+    ],
+    "explorer.confirmDragAndDrop": false,
+    "git.openRepositoryInParentFolders": "always",
+    "git.suggestSmartCommit": false,
+    "xml.server.preferBinary": true,
+    "chat.instructionsFilesLocations": {
+        ".github/instructions": true,
+        "C:\\Users\\scopel\\AppData\\Local\\Temp\\postman-http-request-post-response.instructions.md": true,
+        "C:\\Users\\scopel\\AppData\\Local\\Temp\\postman-http-request-pre-request.instructions.md": true,
+        "C:\\Users\\scopel\\AppData\\Local\\Temp\\postman-collections-post-response.instructions.md": true,
+        "C:\\Users\\scopel\\AppData\\Local\\Temp\\postman-collections-pre-request.instructions.md": true,
+        "C:\\Users\\scopel\\AppData\\Local\\Temp\\postman-folder-post-response.instructions.md": true,
+        "C:\\Users\\scopel\\AppData\\Local\\Temp\\postman-folder-pre-request.instructions.md": true
+    },
+    "git-graph.repository.onlyFollowFirstParent": true,
+    "postman.mcp.notifications.postmanMCP": false,
+    "projectManager.git.baseFolders": [
+        "E:\\Projetos\\git-imp\\emed-scripts",
+        "E:\\Projetos\\git-imp\\emed-com",
+        "E:\\Projetos\\git-imp\\emed-dotnet\\",
+        "E:\\Projetos\\git-imp\\med-web"
+    ],
+    "window.menuBarVisibility": "compact",
+    "vscodeWorkspaceManager.syncSnapshots": [
+        {
+            "workspaceNames": [],
+            "projectPaths": {},
+            "timestamp": 1761760158069
+        }
+    ],
+    "projects.defaultProjectSaveLocation": "E:\\Projetos\\git-imp\\",
+    "dataworkspace.excludedProjects": [
+        
+
+    ],
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+    "chat.mcp.gallery.enabled": true,
+    "gitlens.advanced.messages": {
+        "suppressGitDisabledWarning": true
+    }
+}

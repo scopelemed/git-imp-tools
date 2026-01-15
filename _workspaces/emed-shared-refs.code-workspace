@@ -1,94 +1,94 @@
 {
   "folders": [
-		{
-      "name": "00 • Objetos BD",
-			"path": "emed-scripts/objetos-bd"
-		},
-		{
-      "name": "00 • Scripts BD",
-			"path": "emed-scripts/scripts-banco-dados"
-		},
-		{
-      "name": "01 • VB LIB",
-			"path": "emed-com/vb-lib"
-		},
-		{
-      "name": "01 • VB EMED-UTIL",
-			"path": "emed-com/vb-emed-util"
-		},
-		{
-      "name": "02 • VB EMED-ADM",
-			"path": "emed-com/vb-emed-adm"
-		},
-		{
-      "name": "02 • VB REPORT-SERVER",
-			"path": "emed-com/vb-report-server"
-		},
-		{
-      "name": "02 • VB GEMED",
-			"path": "emed-com/vb-gemed"
-		},
-		{
-      "name": "02 • VB GEMED-SERVIÇOS-ONLINE",
-			"path": "emed-com/vb-gemed-servicos-online"
-		},
-		{
-      "name": "02 • VB LNUC",
-			"path": "emed-com/vb-lnuc"
-		},
-		{
-      "name": "02 • VB LEFIN",
-			"path": "emed-com/vb-lefin"
-		},
-		{
-      "name": "02 • VB LESTQ",
-			"path": "emed-com/vb-lestq"
-		},
-		{
-      "name": "02 • VB LEXPORT",
-			"path": "emed-com/vb-lexport"
-		},
-		{
-      "name": "02 • VB LMCR",
-			"path": "emed-com/vb-lmcr"
-		},
-		{
-      "name": "02 • VB LMTR",
-			"path": "emed-com/vb-lmtr"
-		},
-		{
-      "name": "02 • VB LTAR",
-			"path": "emed-com/vb-ltar"
-		},
-		{
-      "name": "02 • VB LDOC",
-			"path": "emed-com/vb-ldoc"
-		},
-		{
-      "name": "02 • VB LDM-INTEGRAÇÃO",
-			"path": "emed-com/vb-ldm-integracao"
-		},
-		{
-      "name": "02 • VB LGPD",
-			"path": "emed-com/vb-lgpd"
-		},
-		{
-      "name": "02 • VB LINT",
-			"path": "emed-com/vb-lint"
-		},
-		{
-      "name": "02 • VB LEMED-CAD",
-			"path": "emed-com/vb-lemed-cad"
-		},
-		{
-      "name": "02 • VB LEMED-SIG",
-			"path": "emed-com/vb-lemed-sig"
-		},
-		{
-      "name": "02 • VB LEMED",
-			"path": "emed-com/vb-lemed"
-		}
-  ],
+    {
+        "name": "00 • Objetos BD",
+        "path": "../emed-scripts/objetos-bd"
+    },
+    {
+        "name": "00 • Scripts BD",
+        "path": "../emed-scripts/scripts-banco-dados"
+    },
+    {
+        "name": "01 • VB LIB",
+        "path": "../emed-com/vb-lib"
+    },
+    {
+        "name": "01 • VB EMED-UTIL",
+        "path": "../emed-com/vb-emed-util"
+    },
+    {
+        "name": "02 • VB EMED-ADM",
+        "path": "../emed-com/vb-emed-adm"
+    },
+    {
+        "name": "02 • VB REPORT-SERVER",
+        "path": "../emed-com/vb-report-server"
+    },
+    {
+        "name": "02 • VB GEMED",
+        "path": "../emed-com/vb-gemed"
+    },
+    {
+        "name": "02 • VB GEMED-SERVIÇOS-ONLINE",
+        "path": "../emed-com/vb-gemed-servicos-online"
+    },
+    {
+        "name": "02 • VB LNUC",
+        "path": "../emed-com/vb-lnuc"
+    },
+    {
+        "name": "02 • VB LEFIN",
+        "path": "../emed-com/vb-lefin"
+    },
+    {
+        "name": "02 • VB LESTQ",
+        "path": "../emed-com/vb-lestq"
+    },
+    {
+        "name": "02 • VB LEXPORT",
+        "path": "../emed-com/vb-lexport"
+    },
+    {
+        "name": "02 • VB LMCR",
+        "path": "../emed-com/vb-lmcr"
+    },
+    {
+        "name": "02 • VB LMTR",
+        "path": "../emed-com/vb-lmtr"
+    },
+    {
+        "name": "02 • VB LTAR",
+        "path": "../emed-com/vb-ltar"
+    },
+    {
+        "name": "02 • VB LDOC",
+        "path": "../emed-com/vb-ldoc"
+    },
+    {
+        "name": "02 • VB LDM-INTEGRAÇÃO",
+        "path": "../emed-com/vb-ldm-integracao"
+    },
+    {
+        "name": "02 • VB LGPD",
+        "path": "../emed-com/vb-lgpd"
+    },
+    {
+        "name": "02 • VB LINT",
+        "path": "../emed-com/vb-lint"
+    },
+    {
+        "name": "02 • VB LEMED-CAD",
+        "path": "../emed-com/vb-lemed-cad"
+    },
+    {
+        "name": "02 • VB LEMED-SIG",
+        "path": "../emed-com/vb-lemed-sig"
+    },
+    {
+        "name": "02 • VB LEMED",
+        "path": "../emed-com/vb-lemed"
+    }
+],
   "settings": {
     "files.encoding": "windows1252",
     "workbench.iconTheme": "vscode-icons",

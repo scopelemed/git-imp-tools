@@ -51,6 +51,7 @@ param (
     [switch]$DryRun,
 
     [string[]]$ExcludeDirs = @(
+        "scripts-temp-bkp",
         "node_modules", "dist", "build", "out",
         ".next", ".nuxt", ".angular", ".cache",
         "bin", "obj", ".vs", ".vscode"

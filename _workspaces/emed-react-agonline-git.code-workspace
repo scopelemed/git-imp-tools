@@ -2,11 +2,11 @@
   "folders": [
     {
       "name": "72 • Net EMEDAPI",
-      "path": "emed-dotnet/.net-emedapi"
+      "path": "../emed-dotnet/.net-emedapi"
     },
     {
-      "name": "73 • React Prontuario",
-      "path": "emed-react/emedclin-react"
+      "name": "73 • React AGOnline",
+      "path": "../emed-portal-agendamentos"
     }
   ],
   "settings": {
@@ -47,8 +47,10 @@
     "omnisharp.enableEditorConfigSupport": true,
     "omnisharp.enableRoslynAnalyzers": false,
     "omnisharp.loggingLevel": "information",
-    "typescript.tsdk": "emed-react-git/node_modules/typescript/lib",
+
+    "typescript.tsdk": "../emed-portal-agendamentos/node_modules/typescript/lib",
     "typescript.tsserver.maxTsServerMemory": 3072,
+
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
@@ -83,20 +85,20 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "React: Open in Chrome (http://localhost:3000)",
+        "name": "React AGOnline: Open in Chrome (http://localhost:3000)",
         "type": "pwa-chrome",
         "request": "launch",
         "url": "http://localhost:3000",
-        "webRoot": "${workspaceFolder:73 • React Prontuario}"
+        "webRoot": "${workspaceFolder:73 • React AGOnline}"
       }
     ],
     "compounds": [
       {
-        "name": "🚀 Start React (npm start)",
+        "name": "🚀 Start React AGOnline (npm start)",
         "configurations": [
-          "React: Open in Chrome (http://localhost:3000)"
+          "React AGOnline: Open in Chrome (http://localhost:3000)"
         ],
-        "preLaunchTask": "npm: start (React Prontuario)"
+        "preLaunchTask": "npm: start (React AGOnline)"
       }
     ]
   },
@@ -104,28 +106,37 @@
     "version": "2.0.0",
     "tasks": [
       {
-        "label": "npm: install (React Prontuario)",
+        "label": "npm: install (React AGOnline)",
         "type": "npm",
         "script": "install",
-        "path": "emed-react-git",
-        "detail": "Instala dependências do React (emed-react-git)"
+        "path": "../emed-portal-agendamentos",
+        "options": {
+          "cwd": "../emed-portal-agendamentos"
+        },
+        "detail": "Instala dependências do React (AGOnline)"
       },
       {
-        "label": "npm: start (React Prontuario)",
+        "label": "npm: start (React AGOnline)",
         "type": "npm",
         "script": "start",
-        "path": "emed-react-git",
+        "path": "../emed-portal-agendamentos",
+        "options": {
+          "cwd": "../emed-portal-agendamentos"
+        },
         "problemMatcher": [],
         "isBackground": true,
         "detail": "Start do dev-server React em http://localhost:3000"
       },
       {
-        "label": "npm: test (React Prontuario)",
+        "label": "npm: test (React AGOnline)",
         "type": "npm",
         "script": "test",
-        "path": "emed-react-git",
+        "path": "../emed-portal-agendamentos",
+        "options": {
+          "cwd": "../emed-portal-agendamentos"
+        },
         "problemMatcher": "$jest-stare",
-        "detail": "Roda testes do React"
+        "detail": "Roda testes do React (AGOnline)"
       },
       {
         "label": "msbuild: Restore+Build eMedAPI (Debug)",
@@ -140,7 +151,7 @@
           "cwd": "emed-dotnet/.net-emedapi"
         },
         "problemMatcher": "$msCompile",
-        "detail": "Build da solução da API usando MSBuild (Debug)"
+        "detail": "Build Debug da API (MSBuild)"
       },
       {
         "label": "msbuild: Build eMedAPI (Release)",
@@ -155,7 +166,7 @@
           "cwd": "emed-dotnet/.net-emedapi"
         },
         "problemMatcher": "$msCompile",
-        "detail": "Build Release da API usando MSBuild"
+        "detail": "Build Release da API (MSBuild)"
       }
     ]
   }

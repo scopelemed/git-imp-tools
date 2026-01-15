@@ -1,8 +1,8 @@
 {
   "folders": [
     {
-      "name": "10 • Standard",
-      "path": "emed-dotnet/.net-emedstandard"
+      "name": "20 • ServicesCom",
+      "path": "../emed-dotnet/.net-emedservicescom"
     }
   ],
   "settings": {
@@ -21,20 +21,23 @@
       "**/bin": true,
       "**/obj": true,
       "**/Debug": true,
+      "**/net8.0": true,
       "**/*.dll": true,
       "**/*.pdb": true,
       "**/*.exe": true,
-      "**/*.zip": true
+      "**/*.zip": true,
+      "**/*.rar": true
     },
     "search.exclude": {
       "**/bin": true,
       "**/obj": true,
       "**/node_modules": true,
-      "**/dist": true
+      "**/dist": true,
+      "**/vb-vbp-xxxxxxxxxxxxx": true
     },
     "dotnet.preferCSharpExtension": true,
     "omnisharp.useModernNet": true,
-    "omnisharp.useGlobalMono": "never",
+    "omnisharp.useGlobalMono": "auto",
     "omnisharp.enableMsBuildLoadProjectsOnDemand": true,
     "omnisharp.enableEditorConfigSupport": true,
     "omnisharp.enableRoslynAnalyzers": false,

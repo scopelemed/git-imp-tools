@@ -1,0 +1,232 @@
+[
+	{
+		"name": "01 • EMED-COM 🧩",
+		"rootPath": "e:\\Projetos\\git-imp\\_workspaces\\emed-shared-refs.code-workspace",
+		"paths": [],
+		"tags": [
+			"Stored Procedures",
+			"VB6",
+			"Persistência",
+			"CRUD",
+			"Backend"
+		],
+		"enabled": true
+	},
+	{
+		"name": "10 • EMED-STANDARD 🧩",
+		"rootPath": "e:\\Projetos\\git-imp\\_workspaces\\emed-standard.code-workspace",
+		"paths": [],
+		"tags": [
+			"C# 3.0",
+			"Persistência",
+			"CRUD",
+			"Backend"
+		],
+		"enabled": true
+	},
+	{
+		"name": "11 • EMED-FRAMEWORK 🧩",
+		"rootPath": "e:\\Projetos\\git-imp\\_workspaces\\emed-framework.code-workspace",
+		"paths": [
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedstandard"
+		],
+		"tags": [
+			"C# 3.0",
+			"Persistência",
+			"CRUD",
+			"Backend"
+		],
+		"enabled": true
+	},
+	{
+		"name": "20 • EMED-SERVICES-COM ⚙️",
+		"rootPath": "e:\\Projetos\\git-imp\\_workspaces\\emed-servicescom.code-workspace",
+		"paths": [
+			"e:\\Projetos\\git-imp\\emed-scripts\\objetos-bd",
+			"e:\\Projetos\\git-imp\\emed-scripts",
+			"e:\\Projetos\\git-imp\\emed-com",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedstandard",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedframework"
+		],
+		"tags": [
+			"C# 3.0",
+			"WCF",
+			"Backend",
+			"Services"
+		],
+		"enabled": true
+	},
+	{
+		"name": "21 • EMED-SERVICES-NET ⚙️",
+		"rootPath": "e:\\Projetos\\git-imp\\_workspaces\\emed-services.code-workspace",
+		"paths": [
+			"e:\\Projetos\\git-imp\\emed-scripts\\objetos-bd",
+			"e:\\Projetos\\git-imp\\emed-scripts",
+			"e:\\Projetos\\git-imp\\emed-com",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedstandard",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedframework"
+		],
+		"tags": [
+			"C# 3.0",
+			"WCF",
+			"Backend",
+			"Services"
+		],
+		"enabled": true
+	},
+  {
+    "name": "60 • EMED-RELATORIOS 🧾",
+    "rootPath": "e:\\Projetos\\git-imp\\_workspaces\\emed-relatorio.code-workspace",
+    "paths": [
+      "e:\\Projetos\\git-imp\\emed-relatorios\\rel-LEFIN_Financeiro_Comprovante",
+      "e:\\Projetos\\git-imp\\emed-relatorios\\rel-LEFIN_RelMovCaixaAnaliticoByConta",
+      "e:\\Projetos\\git-imp\\emed-relatorios\\rel-LEMED_Agendamento_RelAgendamentoResumido",
+      "e:\\Projetos\\git-imp\\emed-relatorios\\rel-LEMED_FaturaConvenio_RelFaturaConvenio",
+      "e:\\Projetos\\git-imp\\emed-relatorios\\rel-LEMED_FaturaConvenio_RelFaturaConvenioPaciente",
+      "e:\\Projetos\\git-imp\\emed-relatorios\\rel-LEMED_Requisicao_GuiaTissConsulta_v3",
+      "e:\\Projetos\\git-imp\\emed-relatorios\\rel-LEMED_Requisicao_GuiaTissConsulta_v4",
+      "e:\\Projetos\\git-imp\\emed-relatorios\\rel-LESTQ_MovEstoque_PosicaoEstoque",
+      "e:\\Projetos\\git-imp\\emed-relatorios\\rel-LESTQ_MovEstoqueListaSaldos",
+      "e:\\Projetos\\git-imp\\emed-relatorios\\rel-LNUC_Pessoa_ListagemGeral"
+    ],
+    "tags": ["VB6", "VBScript", "XML", "ActiveReports", "PDF", "Reports"],
+    "enabled": true
+  },
+	{
+		"name": "70 • EMED-WEB 🌐",
+		"rootPath": "e:\\Projetos\\git-imp\\_workspaces\\emed-web.code-workspace",
+		"paths": [
+			"e:\\Projetos\\git-imp\\emed-scripts\\objetos-bd",
+			"e:\\Projetos\\git-imp\\emed-scripts",
+			"e:\\Projetos\\git-imp\\emed-com"
+		],
+		"tags": [
+			"ASP Classic",
+			"Frontend",
+			"Web",
+			"HTML",
+			"CSS",
+			"JavaScript"
+		],
+		"enabled": true
+	},
+	{
+		"name": "71 • EMED-CLIN 🌐",
+		"rootPath": "e:\\Projetos\\git-imp\\_workspaces\\emed-clin.code-workspace",
+		"paths": [
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedclin",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedstandard",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedframework",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedservices",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedservicescom",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emeddisplayservice",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedemitenfeservice",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedelosservice",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedannaservice",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedsivoeservice",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedsms",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedpki",
+			"e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedfila",
+			"e:\\Projetos\\git-imp\\emed-scripts\\objetos-bd",
+			"e:\\Projetos\\git-imp\\emed-scripts\\scripts-banco-dados",
+			"e:\\Projetos\\git-imp\\emed-com"
+		],
+		"tags": [
+			"ASP NET",
+			"C# 3.0",
+			"Frontend",
+			"Web",
+			"HTML",
+			"CSS",
+			"JavaScript"
+		],
+	  "enabled": true
+	},
+  {
+    "name": "72 • EMED-API 🌐",
+    "rootPath": "e:\\Projetos\\git-imp\\_workspaces\\emed-netapi-git.code-workspace",
+    "paths": [
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedapi",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedstandard",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedframework",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedservices",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedservicescom",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emeddisplayservice",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedemitenfeservice",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedelosservice",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedsivoeservice",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedannaservice",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedprescricao",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedsms",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedpki",
+      "e:\\Projetos\\git-imp\\emed-scripts\\objetos-bd",
+      "e:\\Projetos\\git-imp\\emed-scripts\\scripts-banco-dados",
+      "e:\\Projetos\\git-imp\\emed-com"
+    ],
+    "tags": [
+      ".NET",
+      "C# 3.0",
+      "Backend",
+      "API",
+      "Services"
+    ],
+    "enabled": true
+  },
+  {
+    "name": "73 • EMED-REACT 🌐",
+    "rootPath": "e:\\Projetos\\git-imp\\_workspaces\\emed-react-git.code-workspace",
+    "paths": [
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedapi",
+      "e:\\Projetos\\git-imp\\emed-react\\emedclin-react\\emedclin-react"
+    ],
+    "tags": ["React", "TypeScript", "Frontend", "Web", "ESLint", "Prettier"],
+    "enabled": true
+  },
+  {
+    "name": "74 • EMED-REACT AGOnline 🌐",
+    "rootPath": "e:\\Projetos\\git-imp\\_workspaces\\emed-react-agonline-git.code-workspace",
+    "paths": [
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedapi",
+      "e:\\Projetos\\git-imp\\emed-portal-agendamentos"
+    ],
+    "tags": ["React", "TypeScript", "Frontend", "Web", "ESLint", "Prettier"],
+    "enabled": true
+  },
+  {
+    "name": "80 • EMED-SCHEDULE ⏱️",
+    "rootPath": "e:\\Projetos\\git-imp\\_workspaces\\emed-schedule.code-workspace",
+    "paths": [
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedapi",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-scheduler-servico",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-scheduler-dashboard"
+    ],
+    "tags": [".NET", "Quartz", "Worker", "Dashboard", "Backend"],
+    "enabled": true
+  },
+  {
+    "name": "90 • EMED-JOB ⏱️",
+    "rootPath": "e:\\Projetos\\git-imp\\_workspaces\\emed-job-agenda-aceleradora-update.code-workspace",
+    "paths": [
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-emedapi",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-job-notificacao-agendamento",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-job-agenda-aceleradora-update",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-job-exclusao-agenda",
+      "e:\\Projetos\\git-imp\\emed-dotnet\\.net-job-lote-exclusao-agenda"
+    ],
+    "tags": [".NET", "Jobs", "Scheduler", "Backend"],
+    "enabled": true
+  },
+  {
+		"name": "00 • EMED-IMP  ⚙️",
+		"rootPath": "e:\\Projetos\\git-imp\\_workspaces\\emed-imp.code-workspace",
+		"paths": [],
+		"tags": [
+			"Workspace",
+			"Script",
+			"Configuração",
+			"Documentos",
+			"FAQs"
+		],
+		"enabled": true
+	}
+]

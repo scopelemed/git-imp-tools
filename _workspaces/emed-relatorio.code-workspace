@@ -2,43 +2,43 @@
   "folders": [
     {
       "name": "61 • Relatorio Financeiro Comprovante",
-      "path": "emed-relatorios/rel-LEFIN_Financeiro_Comprovante"
+      "path": "../emed-relatorios/rel-LEFIN_Financeiro_Comprovante"
     },
     {
       "name": "61 • Relatorio Financeiro MovCaixaAnaliticoByConta",
-      "path": "emed-relatorios/rel-LEFIN_RelMovCaixaAnaliticoByConta"
+      "path": "../emed-relatorios/rel-LEFIN_RelMovCaixaAnaliticoByConta"
     },
     {
       "name": "62 • Relatorio Agendamento AgendamentoResumido",
-      "path": "emed-relatorios/rel-LEMED_Agendamento_RelAgendamentoResumido"
+      "path": "../emed-relatorios/rel-LEMED_Agendamento_RelAgendamentoResumido"
     },
     {
       "name": "63 • Relatorio FaturaConvenio FaturaConvenio",
-      "path": "emed-relatorios/rel-LEMED_FaturaConvenio_RelFaturaConvenio"
+      "path": "../emed-relatorios/rel-LEMED_FaturaConvenio_RelFaturaConvenio"
     },
     {
       "name": "63 • Relatorio FaturaConvenio FaturaConvenioPaciente",
-      "path": "emed-relatorios/rel-LEMED_FaturaConvenio_RelFaturaConvenioPaciente"
+      "path": "../emed-relatorios/rel-LEMED_FaturaConvenio_RelFaturaConvenioPaciente"
     },
     {
       "name": "64 • Relatorio Requisicao GuiaTissConsultaV3",
-      "path": "emed-relatorios/rel-LEMED_Requisicao_GuiaTissConsulta_v3"
+      "path": "../emed-relatorios/rel-LEMED_Requisicao_GuiaTissConsulta_v3"
     },
     {
       "name": "64 • Relatorio Requisicao GuiaTissConsultaV4",
-      "path": "emed-relatorios/rel-LEMED_Requisicao_GuiaTissConsulta_v4"
+      "path": "../emed-relatorios/rel-LEMED_Requisicao_GuiaTissConsulta_v4"
     },
     {
       "name": "65 • Relatorio Estoque PosicaoEstoque",
-      "path": "emed-relatorios/rel-LESTQ_MovEstoque_PosicaoEstoque"
+      "path": "../emed-relatorios/rel-LESTQ_MovEstoque_PosicaoEstoque"
     },
     {
       "name": "65 • Relatorio Estoque ListaSaldos",
-      "path": "emed-relatorios/rel-LESTQ_MovEstoqueListaSaldos"
+      "path": "../emed-relatorios/rel-LESTQ_MovEstoqueListaSaldos"
     },
     {
       "name": "66 • Relatorio Pessoa ListagemGeral",
-      "path": "emed-relatorios/rel-LNUC_Pessoa_ListagemGeral"
+      "path": "../emed-relatorios/rel-LNUC_Pessoa_ListagemGeral"
     }
   ],
   "settings": {

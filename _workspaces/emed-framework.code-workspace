@@ -1,16 +1,8 @@
 {
   "folders": [
     {
-      "name": "72 • Net EMEDAPI",
-      "path": "emed-dotnet/.net-emedapi"
-    },
-    {
-      "name": "81 • Scheduler Hub (Worker)",
-      "path": "emed-dotnet/.net-scheduler-servico"
-    },
-    {
-      "name": "82 • Quartzmon Dashboard",
-      "path": "emed-dotnet/.net-scheduler-dashboard"
+      "name": "11 • Framework",
+      "path": "../emed-dotnet/.net-emedframework"
     }
   ],
   "settings": {
@@ -57,10 +49,10 @@
   "extensions": {
     "recommendations": [
       "ms-dotnettools.csharp",
-      "eamodio.gitlens",
-      "donjayamanne.githistory",
-      "ms-vscode.powershell",
       "ms-azuretools.vscode-docker",
+      "ms-vscode.powershell",
+      "donjayamanne.githistory",
+      "eamodio.gitlens",
       "PKief.material-icon-theme",
       "alefragnani.project-manager"
     ]

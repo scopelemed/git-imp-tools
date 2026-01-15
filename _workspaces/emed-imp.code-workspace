@@ -1,27 +1,30 @@
 {
   "folders": [
-    {
-      "name": "20 • ServicesCom",
-      "path": "emed-dotnet/.net-emedservicescom"
-    }
+    { "name": "0001 • Workspaces", "path": "../_workspaces" },
+    { "name": "0002 • Scripts",     "path": "../_scripts" },
+    { "name": "0003 • Docs",        "path": "../_docs" },
+
+    { "name": "0099 • .vscode",     "path": "../.vscode" }
   ],
   "settings": {
     "files.encoding": "windows1252",
-    "git.enabled": true,
-    "git.branchProtection": [
-      "master",
-      "develop"
-    ],
-    "git.repositoryScanIgnoredFolders": true,
     "workbench.iconTheme": "vscode-icons",
+
+    // (evita VS Code ficar varrendo repositórios sem necessidade)
+    "git.enabled": false,
+
+    // Deixa a .vscode visível e remove ruído comum
     "files.exclude": {
       "**/.git": true,
       "**/.vs": true,
       "**/.vscode": false,
+
       "**/bin": true,
       "**/obj": true,
       "**/Debug": true,
+      "**/Release": true,
       "**/net8.0": true,
+
       "**/*.dll": true,
       "**/*.pdb": true,
       "**/*.exe": true,
@@ -34,29 +37,18 @@
       "**/node_modules": true,
       "**/dist": true,
       "**/vb-vbp-xxxxxxxxxxxxx": true
-    },
-    "dotnet.preferCSharpExtension": true,
-    "omnisharp.useModernNet": true,
-    "omnisharp.useGlobalMono": "auto",
-    "omnisharp.enableMsBuildLoadProjectsOnDemand": true,
-    "omnisharp.enableEditorConfigSupport": true,
-    "omnisharp.enableRoslynAnalyzers": false,
-    "omnisharp.loggingLevel": "information",
-    "csharp.suppressDotnetInstallWarning": true,
-    "csharp.format.enable": true,
-    "editor.formatOnSave": false,
-    "editor.codeActionsOnSave": {
-      "source.fixAll": "never"
     }
   },
   "extensions": {
     "recommendations": [
-      "ms-dotnettools.csharp",
+      "ritwickdey.liveserver",
+      "ms-vscode.vscode-typescript-next",
       "ms-azuretools.vscode-docker",
-      "ms-vscode.powershell",
+      "formulahendry.code-runner",
       "donjayamanne.githistory",
       "eamodio.gitlens",
       "PKief.material-icon-theme",
+      "ms-dotnettools.csdevkit",
       "alefragnani.project-manager"
     ]
   }

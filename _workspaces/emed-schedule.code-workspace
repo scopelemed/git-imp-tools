@@ -2,23 +2,15 @@
   "folders": [
     {
       "name": "72 • Net EMEDAPI",
-      "path": "emed-dotnet/.net-emedapi"
+      "path": "../emed-dotnet/.net-emedapi"
     },
     {
-      "name": "90 • Job Notifica Agendamento",
-      "path": "emed-dotnet/.net-job-notificacao-agendamento"
+      "name": "81 • Scheduler Hub (Worker)",
+      "path": "../emed-dotnet/.net-scheduler-servico"
     },
     {
-      "name": "91 • Job Agenda Update",
-      "path": "emed-dotnet/.net-job-agenda-aceleradora-update"
-    },
-    {
-      "name": "92 • Job Agenda Exclusao",
-      "path": "emed-dotnet/.net-job-exclusao-agenda"
-    },
-    {
-      "name": "93 • Job Agenda Exclusao Lote",
-      "path": "emed-dotnet/.net-job-lote-exclusao-agenda"
+      "name": "82 • Quartzmon Dashboard",
+      "path": "../emed-dotnet/.net-scheduler-dashboard"
     }
   ],
   "settings": {

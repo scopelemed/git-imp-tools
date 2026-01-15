@@ -1,0 +1,310 @@
+[
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-aspnet",
+		"name": "emed-aspnet"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com",
+		"name": "emed-com"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-portal-agendamentos",
+		"name": "emed-portal-agendamentos"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-portal-web",
+		"name": "emed-portal-web"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-web",
+		"name": "emed-web"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\react-theme-module",
+		"name": "react-theme-module"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\react-locale-module",
+		"name": "react-locale-module"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-aep\\DC_Contas",
+		"name": "DC_Contas"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-assemblies",
+		"name": ".net-assemblies"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedannaservice",
+		"name": ".net-emedannaservice"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedapi",
+		"name": ".net-emedapi"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedclin",
+		"name": ".net-emedclin"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emeddisplayservice",
+		"name": ".net-emeddisplayservice"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedelosservice",
+		"name": ".net-emedelosservice"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedfila",
+		"name": ".net-emedfila"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedemitenfeservice",
+		"name": ".net-emedemitenfeservice"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedframework",
+		"name": ".net-emedframework"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emednfse",
+		"name": ".net-emednfse"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedpagamentos",
+		"name": ".net-emedpagamentos"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedpki",
+		"name": ".net-emedpki"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedprescricao",
+		"name": ".net-emedprescricao"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedservicescom",
+		"name": ".net-emedservicescom"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedsivoeservice",
+		"name": ".net-emedsivoeservice"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedservices",
+		"name": ".net-emedservices"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedstandard",
+		"name": ".net-emedstandard"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedsms",
+		"name": ".net-emedsms"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-job-exclusao-agenda",
+		"name": ".net-job-exclusao-agenda"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-job-agenda-aceleradora-update",
+		"name": ".net-job-agenda-aceleradora-update"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-job-lote-exclusao-agenda",
+		"name": ".net-job-lote-exclusao-agenda"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-job-notificacao-agendamento",
+		"name": ".net-job-notificacao-agendamento"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-scheduler-dashboard",
+		"name": ".net-scheduler-dashboard"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-solutions",
+		"name": ".net-solutions"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-scheduler-servico",
+		"name": ".net-scheduler-servico"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-ferramentas\\ferramentas-calculadora-projetos",
+		"name": "ferramentas-calculadora-projetos"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-emedws",
+		"name": "vb-emedws"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-emed-util",
+		"name": "vb-emed-util"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-emed-adm",
+		"name": "vb-emed-adm"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-gemed",
+		"name": "vb-gemed"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-gemed-servicos-online",
+		"name": "vb-gemed-servicos-online"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-ldm-integracao",
+		"name": "vb-ldm-integracao"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-ldoc",
+		"name": "vb-ldoc"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-lefin",
+		"name": "vb-lefin"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-lemed",
+		"name": "vb-lemed"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-lemed-cad",
+		"name": "vb-lemed-cad"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-lemed-sig",
+		"name": "vb-lemed-sig"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-lestq",
+		"name": "vb-lestq"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-lgpd",
+		"name": "vb-lgpd"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-lib",
+		"name": "vb-lib"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-lint",
+		"name": "vb-lint"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-lmcr",
+		"name": "vb-lmcr"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-lexport",
+		"name": "vb-lexport"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-lmtr",
+		"name": "vb-lmtr"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-ltar",
+		"name": "vb-ltar"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-report-server",
+		"name": "vb-report-server"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-com\\vb-lnuc",
+		"name": "vb-lnuc"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-package-react\\react-locale-module",
+		"name": "react-locale-module"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-package-react\\react-theme-module",
+		"name": "react-theme-module"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-react\\emedclin-react",
+		"name": "emedclin-react"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-relatorios\\rel-LEFIN_Financeiro_Comprovante",
+		"name": "rel-LEFIN_Financeiro_Comprovante"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-relatorios\\rel-LEFIN_RelMovCaixaAnaliticoByConta",
+		"name": "rel-LEFIN_RelMovCaixaAnaliticoByConta"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-relatorios\\rel-LEMED_FaturaConvenio_RelFaturaConvenio",
+		"name": "rel-LEMED_FaturaConvenio_RelFaturaConvenio"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-relatorios\\rel-LEMED_Agendamento_RelAgendamentoResumido",
+		"name": "rel-LEMED_Agendamento_RelAgendamentoResumido"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-relatorios\\rel-LEMED_Requisicao_GuiaTissConsulta_v3",
+		"name": "rel-LEMED_Requisicao_GuiaTissConsulta_v3"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-relatorios\\rel-LEMED_FaturaConvenio_RelFaturaConvenioPaciente",
+		"name": "rel-LEMED_FaturaConvenio_RelFaturaConvenioPaciente"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-relatorios\\rel-LEMED_Requisicao_GuiaTissConsulta_v4",
+		"name": "rel-LEMED_Requisicao_GuiaTissConsulta_v4"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-relatorios\\rel-LESTQ_MovEstoque_PosicaoEstoque",
+		"name": "rel-LESTQ_MovEstoque_PosicaoEstoque"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-relatorios\\rel-LESTQ_MovEstoqueListaSaldos",
+		"name": "rel-LESTQ_MovEstoqueListaSaldos"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-relatorios\\rel-LNUC_Pessoa_ListagemGeral",
+		"name": "rel-LNUC_Pessoa_ListagemGeral"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-scopel\\emed-acha-checkout",
+		"name": "emed-acha-checkout"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-scopel\\emed-migra-v2",
+		"name": "emed-migra-v2"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-scopel\\emed-migra-v3",
+		"name": "emed-migra-v3"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-scopel\\emed-wrike-indicadores-web",
+		"name": "emed-wrike-indicadores-web"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-scripts\\scripts-banco-dados",
+		"name": "scripts-banco-dados"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-scripts\\objetos-bd",
+		"name": "objetos-bd"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-dotnet\\.net-emedservices\\master",
+		"name": "master"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-scripts\\scripts-temp-bkp\\scripts-banco-dados-20231007",
+		"name": "scripts-banco-dados-20231007"
+	},
+	{
+		"fullPath": "E:\\Projetos\\git-imp\\emed-scripts\\scripts-temp-bkp\\scripts-banco-dados-20240531",
+		"name": "scripts-banco-dados-20240531"
+	}
+]

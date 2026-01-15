@@ -2,7 +2,7 @@
   "folders": [
     {
       "name": "21 • Services",
-      "path": "emed-dotnet/.net-emedservices"
+      "path": "../emed-dotnet/.net-emedservices"
     }
   ],
   "settings": {

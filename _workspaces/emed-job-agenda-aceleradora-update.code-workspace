@@ -1,8 +1,24 @@
 {
   "folders": [
     {
-      "name": "11 • Framework",
-      "path": "emed-dotnet/.net-emedframework"
+      "name": "72 • Net EMEDAPI",
+      "path": "../emed-dotnet/.net-emedapi"
+    },
+    {
+      "name": "90 • Job Notifica Agendamento",
+      "path": "../emed-dotnet/.net-job-notificacao-agendamento"
+    },
+    {
+      "name": "91 • Job Agenda Update",
+      "path": "../emed-dotnet/.net-job-agenda-aceleradora-update"
+    },
+    {
+      "name": "92 • Job Agenda Exclusao",
+      "path": "../emed-dotnet/.net-job-exclusao-agenda"
+    },
+    {
+      "name": "93 • Job Agenda Exclusao Lote",
+      "path": "../emed-dotnet/.net-job-lote-exclusao-agenda"
     }
   ],
   "settings": {
@@ -49,10 +65,10 @@
   "extensions": {
     "recommendations": [
       "ms-dotnettools.csharp",
-      "ms-azuretools.vscode-docker",
-      "ms-vscode.powershell",
-      "donjayamanne.githistory",
       "eamodio.gitlens",
+      "donjayamanne.githistory",
+      "ms-vscode.powershell",
+      "ms-azuretools.vscode-docker",
       "PKief.material-icon-theme",
       "alefragnani.project-manager"
     ]

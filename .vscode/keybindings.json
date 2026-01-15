@@ -1,0 +1,21 @@
+// Coloque as suas associações de teclas neste arquivo para substituir os padrõesauto[]
+[
+    {
+        "key": "ctrl+shift+f1",
+        "command": "git.openRepository"
+    },
+    {
+        "key": "ctrl+shift+7",
+        "command": "extension.addLocalreference"
+    },
+    {
+        "key": "alt+x up",
+        "command": "git.reopenClosedRepositories",
+        "when": "!operationInProgress && git.closedRepositoryCount != '0'"
+    },
+    {
+        "key": "alt+d",
+        "command": "fileutils.duplicateFile",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    }
+]

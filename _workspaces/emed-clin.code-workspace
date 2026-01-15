@@ -2,55 +2,55 @@
   "folders": [
     {
       "name": "10 • Standard",
-      "path": "emed-dotnet/.net-emedstandard"
+      "path": "../emed-dotnet/.net-emedstandard"
     },
     {
       "name": "11 • Framework",
-      "path": "emed-dotnet/.net-emedframework"
+      "path": "../emed-dotnet/.net-emedframework"
     },
     {
       "name": "20 • ServicesCom",
-      "path": "emed-dotnet/.net-emedservicescom"
+      "path": "../emed-dotnet/.net-emedservicescom"
     },
     {
       "name": "21 • Services",
-      "path": "emed-dotnet/.net-emedservices"
+      "path": "../emed-dotnet/.net-emedservices"
     },
     {
       "name": "30 • PKI",
-      "path": "emed-dotnet/.net-emedpki"
+      "path": "../emed-dotnet/.net-emedpki"
     },
     {
       "name": "40 • EmiteNFSeService",
-      "path": "emed-dotnet/.net-emedemitenfeservice"
+      "path": "../emed-dotnet/.net-emedemitenfeservice"
     },
     {
       "name": "41 • DisplayService",
-      "path": "emed-dotnet/.net-emeddisplayservice"
+      "path": "../emed-dotnet/.net-emeddisplayservice"
     },
     {
       "name": "42 • ElosService",
-      "path": "emed-dotnet/.net-emedelosservice"
+      "path": "../emed-dotnet/.net-emedelosservice"
     },
     {
       "name": "43 • AnnaService",
-      "path": "emed-dotnet/.net-emedannaservice"
+      "path": "../emed-dotnet/.net-emedannaservice"
     },
     {
       "name": "44 • SivoeService",
-      "path": "emed-dotnet/.net-emedsivoeservice"
+      "path": "../emed-dotnet/.net-emedsivoeservice"
     },
     {
       "name": "50 • SMS",
-      "path": "emed-dotnet/.net-emedsms"
+      "path": "../emed-dotnet/.net-emedsms"
     },
     {
       "name": "51 • Fila",
-      "path": "emed-dotnet/.net-emedfila"
+      "path": "../emed-dotnet/.net-emedfila"
     },
     {
       "name": "71 • Net EMEDCLIN",
-      "path": "emed-dotnet/.net-emedclin"
+      "path": "../emed-dotnet/.net-emedclin"
     }
   ],
   "settings": {

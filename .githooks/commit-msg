@@ -1,0 +1,41 @@
+#!/usr/bin/env sh
+# EMED - commit-msg hook
+# Valida Conventional Commits (subset) para padronização.
+# Habilite via: git config core.hooksPath .githooks
+
+COMMIT_MSG_FILE="$1"
+SUBJECT="$(head -n 1 "$COMMIT_MSG_FILE")"
+
+# Permite commits de merge/rebase revert automáticos (opcional).
+case "$SUBJECT" in
+  "Merge "*|"Revert "*|"WIP "*)
+    exit 0
+  ;;
+esac
+
+# Tipos aceitos
+TYPES="feat|fix|refactor|perf|docs|test|chore|build|ci|revert"
+
+# Regex: type(optional-scope): space description
+# - scope: letras/números/_- . (sem espaço)
+# - description: pelo menos 3 chars (evita "a", "ok")
+REGEX="^(${TYPES})(\([a-z0-9][a-z0-9._-]*\))?:\ .{3,}$"
+
+echo "$SUBJECT" | grep -Eq "$REGEX"
+if [ $? -ne 0 ]; then
+  echo "❌ Commit message inválida."
+  echo ""
+  echo "Use o formato:"
+  echo "  <prefixo>(escopo opcional): <descrição objetiva>"
+  echo ""
+  echo "Prefixos aceitos: feat, fix, refactor, perf, docs, test, chore, build, ci, revert"
+  echo "Exemplos:"
+  echo "  feat(financeiro): criar sp de baixa automática por tipo de pagamento"
+  echo "  fix(sql): corrigir filtro de data na sp de agenda"
+  echo "  chore(repo): remover arquivos temporários e padronizar .gitignore"
+  echo ""
+  echo "Guia completo: docs/commit-message-guidelines.md"
+  exit 1
+fi
+
+exit 0
