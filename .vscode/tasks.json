@@ -1,0 +1,48 @@
+{
+  "version": "2.0.0",
+  "inputs": [
+    {
+      "id": "branchName",
+      "type": "promptString",
+      "description": "Branch para procurar (ex: epic/link-pagamento, feature/123...)",
+      "default": "develop"
+    },
+    {
+      "id": "modoExecucao",
+      "type": "pickString",
+      "description": "Modo de execução",
+      "options": [
+        "DryRun (somente listar)",
+        "AutoCheckout (fazer checkout onde encontrar)",
+        "Normal (rodar sem DryRun/Checkout)"
+      ],
+      "default": "DryRun (somente listar)"
+    }
+  ],
+  "tasks": [
+    {
+      "label": "?? Git-IMP • Achar repo por branch (com opções)",
+      "type": "shell",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "ByPass",
+        "-File",
+        "E:\\Projetos\\git-imp\\_scripts\\achaRepoByBranch.ps1",
+        "-Branch",
+        "${input:branchName}",
+        "-DryRun",
+        "${input:modoExecucao}",
+        "-AutoCheckout",
+        "${input:modoExecucao}"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false
+      },
+      "problemMatcher": []
+    }
+  ]
+}

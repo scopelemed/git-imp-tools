@@ -1,58 +1,38 @@
 {
   "folders": [
     {
-      "name": "10 • Standard",
-      "path": "../emed-dotnet/.net-emedstandard"
+        "name": "00 • Solution",
+        "path": "../emed-dotnet/.net-migra-v3"
     },
     {
-      "name": "11 • Framework",
-      "path": "../emed-dotnet/.net-emedframework"
+        "name": "01 • Application",
+        "path": "../emed-dotnet/.net-migra-v3/src/MigraV3.Application"
     },
     {
-      "name": "20 • ServicesCom",
-      "path": "../emed-dotnet/.net-emedservicescom"
+        "name": "02 • Abstractions",
+        "path": "../emed-dotnet/.net-migra-v3/src/MigraV3.Connectors.Abstractions"
     },
     {
-      "name": "21 • Services",
-      "path": "../emed-dotnet/.net-emedservices"
+        "name": "03 • SQL Connector",
+        "path": "../emed-dotnet/.net-migra-v3/src/MigraV3.Connectors.Sql"
     },
     {
-      "name": "30 • PKI",
-      "path": "../emed-dotnet/.net-emedpki"
+        "name": "04 • Domain",
+        "path": "../emed-dotnet/.net-migra-v3/src/MigraV3.Domain"
     },
     {
-      "name": "40 • EmiteNFSeService",
-      "path": "../emed-dotnet/.net-emedemitenfeservice"
+        "name": "05 • Infrastructure",
+        "path": "../emed-dotnet/.net-migra-v3/src/MigraV3.Infrastructure"
     },
     {
-      "name": "41 • DisplayService",
-      "path": "../emed-dotnet/.net-emeddisplayservice"
+        "name": "06 • Rules",
+        "path": "../emed-dotnet/.net-migra-v3/src/MigraV3.Rules"
     },
     {
-      "name": "42 • ElosService",
-      "path": "../emed-dotnet/.net-emedelosservice"
-    },
-    {
-      "name": "43 • AnnaService",
-      "path": "../emed-dotnet/.net-emedannaservice"
-    },
-    {
-      "name": "44 • SivoeService",
-      "path": "../emed-dotnet/.net-emedsivoeservice"
-    },
-    {
-      "name": "45 • Pagamentos",
-      "path": "../emed-dotnet/.net-emedpagamentos"
-    },
-    {
-      "name": "50 • SMS",
-      "path": "../emed-dotnet/.net-emedsms"
-    },
-    {
-      "name": "72 • Net EMEDAPI",
-      "path": "../emed-dotnet/.net-emedapi"
+        "name": "07 • WinForms GUI",
+        "path": "../emed-dotnet/.net-migra-v3/src/MigraV3.Win"
     }
-  ],
+ ],
   "settings": {
     "files.encoding": "windows1252",
     "git.enabled": true,
@@ -83,6 +63,7 @@
     "dotnet.preferCSharpExtension": true,
     "omnisharp.useModernNet": true,
     "omnisharp.useGlobalMono": "never",
+    "omnisharp.msbuildPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\Current\\Bin",
     "omnisharp.enableMsBuildLoadProjectsOnDemand": true,
     "omnisharp.enableEditorConfigSupport": true,
     "omnisharp.enableRoslynAnalyzers": false,
@@ -97,11 +78,11 @@
   "extensions": {
     "recommendations": [
       "ms-dotnettools.csharp",
-      "eamodio.gitlens",
       "donjayamanne.githistory",
-      "ms-vscode.powershell",
-      "ms-azuretools.vscode-docker",
+      "eamodio.gitlens",
       "PKief.material-icon-theme",
+      "ms-azuretools.vscode-docker",
+      "ms-vscode.powershell",
       "alefragnani.project-manager"
     ]
   }
