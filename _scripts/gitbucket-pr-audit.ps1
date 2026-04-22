@@ -23,10 +23,10 @@
 
 $CONFIG = @{
     # URL base do GitBucket
-    GitBucketUrl = "http://seu-gitbucket:8080"
+    GitBucketUrl = "http://gitemed.emedrs.local:8080"
 
     # Token de acesso
-    Token = "SEU_TOKEN_AQUI"
+    Token = "3faf06e7e86563134f14178b2341d2fc8232786a"
 
     # Modo de busca de repositórios:
     # "user" = busca repositórios de um usuário
@@ -86,7 +86,7 @@ function Write-Log {
     Write-Host "$prefix - $Message"
 }
 
-function Ensure-OutputDir {
+function New-OutputDir {
     if (-not (Test-Path $CONFIG.OutputDir)) {
         New-Item -ItemType Directory -Path $CONFIG.OutputDir -Force | Out-Null
     }
@@ -235,7 +235,7 @@ function Get-CompareInfo {
     }
 }
 
-function Should-IncludeResult {
+function Test-IncludeResult {
     param(
         [Parameter(Mandatory = $true)]$Item
     )
@@ -270,7 +270,7 @@ if ([string]::IsNullOrWhiteSpace($CONFIG.Token) -or $CONFIG.Token -eq "SEU_TOKEN
     throw "Configure o token em `$CONFIG.Token antes de executar."
 }
 
-Ensure-OutputDir
+New-OutputDir
 
 Write-Log "Iniciando auditoria de PRs no GitBucket"
 Write-Log "RepoScope: $($CONFIG.RepoScope)"
@@ -338,7 +338,7 @@ foreach ($repo in $repos) {
             BehindBy         = $compareInfo.BehindBy
         }
 
-        if (Should-IncludeResult -Item $item) {
+        if (Test-IncludeResult -Item $item) {
             $results.Add($item)
         }
     }
