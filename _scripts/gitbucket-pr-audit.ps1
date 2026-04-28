@@ -1,11 +1,15 @@
 <#
-    GitBucket - Auditoria de Pull Requests para Branch Base - v2
-    ------------------------------------------------------------
+    GitBucket - Auditoria de Pull Requests para Branch Base
+    -------------------------------------------------------
 
     Objetivo:
-      - Listar PRs abertos com destino na branch configurada (ex: develop)
+      - Listar PRs abertos com destino na branch configurada (ex: main/develop)
       - Opcionalmente identificar se a branch do PR está desatualizada (behind)
         usando exclusivamente a API do GitBucket
+      - Exibir título amigável do PR, usando comentário inicial apenas quando
+        o título original for automático/igual ao nome da branch
+      - Exibir data do último commit associado ao PR
+      - Sinalizar visualmente pendências de publicação por idade do último commit
 
     Principais recursos:
       - Paginação segura (evita loop infinito)
@@ -15,6 +19,7 @@
       - Comparação opcional de branches (ahead/behind)
       - Exportação em CSV, JSON e HTML
       - Resumo por autor
+      - Status por cores baseado em PendentePublicação
 
     Requisitos:
       - PowerShell 5+ ou PowerShell 7+
@@ -51,24 +56,48 @@ $CONFIG = @{
     RepoScope = "org"
     OwnerName = "Desenvolvedores"
 
+    # Branch alvo dos PRs
+    # BaseBranch = "develop"
     BaseBranch = "main"
+
+    # Estado dos PRs a serem considerados
     PullRequestState = "open"
 
+    # Habilita tentativa de comparação ahead/behind via API do GitBucket
     EnableCompareCheck = $true
-    IncludeUpToDateWhenCompareEnabled = $false
 
+    # Quando $true, inclui PRs atualizados/alinhados mesmo com compare habilitado
+    IncludeUpToDateWhenCompareEnabled = $true
+
+    # Ignora repositórios arquivados, quando o campo existir na resposta da API
     IgnoreArchivedRepositories = $true
+
+    # Valida se a branch base existe no repositório antes de buscar PRs
     ValidateBaseBranchExists = $true
 
+    # Filtros opcionais por nome de repositório
     IncludeRepoNamePatterns = @()
     ExcludeRepoNamePatterns = @("^rel-")
 
-    ExportCsv  = $true
+    # Sinalização por idade do último commit associado ao PR
+    # Verde   = até 5 dias
+    # Amarelo = até 15 dias
+    # Vermelho = acima de 15 dias, com referência crítica em 30 dias
+    PendentePublicação = @{
+        Verde    = 5
+        Amarelo  = 15
+        Vermelho = 30
+    }
+
+    # Exportações
+    ExportCsv  = $false
     ExportJson = $false
     ExportHtml = $true
 
+    # Diretório de saída
     OutputDir = "$PSScriptRoot\out"
 
+    # Configurações técnicas
     TimeoutSec = 60
     MaxRepoPages = 200
     VerboseMode = $true
@@ -78,8 +107,16 @@ $CONFIG = @{
 # LOG
 # =========================================================
 
+# Função: Ensure-OutputDir
+# Objetivo: Garantir que o diretório de saída exista antes da geração de arquivos
+function New-OutputDir {
+    if (-not (Test-Path $CONFIG.OutputDir)) {
+        New-Item -ItemType Directory -Path $CONFIG.OutputDir -Force | Out-Null
+    }
+}
+
 # Função: Write-Log
-# Objetivo: Padronizar saída de log com níveis (INFO, DEBUG, etc)
+# Objetivo: Padronizar saída de log com níveis (INFO, DEBUG, WARN, ERROR)
 function Write-Log {
     param(
         [string]$Message,
@@ -412,8 +449,9 @@ function Test-BranchExists {
     $url = "{0}/api/v3/repos/{1}/{2}/branches/{3}" -f `
         $CONFIG.GitBucketUrl, $Owner, $RepoName, $encodedBranch
 
-    try {
-        return ($null -ne (Invoke-GitBucketGet -Url $url))
+   try {
+    $result = Invoke-GitBucketGet -Url $url
+    return ($null -ne $result)
     }
     catch {
         Write-Log "Branch '$Branch' não encontrada ou endpoint indisponível em $Owner/$RepoName." "DEBUG"
@@ -498,6 +536,165 @@ function Get-PullRequestHeadBranch {
     return $null
 }
 
+# Função: Get-PullRequestRawTitle
+# Objetivo: Extrair título original do PR com fallback seguro para branch
+function Get-PullRequestRawTitle {
+    param(
+        $PullRequest,
+        [string]$HeadBranch
+    )
+
+    if (
+        ($null -ne $PullRequest) -and
+        ($PullRequest.PSObject.Properties.Name -contains "title") -and
+        (-not [string]::IsNullOrWhiteSpace([string]$PullRequest.title))
+    ) {
+        return ([string]$PullRequest.title).Trim()
+    }
+
+    return $HeadBranch
+}
+
+# Função: Get-PullRequestFirstComment
+# Objetivo: Buscar primeiro comentário válido do PR
+function Get-PullRequestFirstComment {
+    param(
+        [string]$Owner,
+        [string]$RepoName,
+        $PullRequest
+    )
+
+    if ($null -eq $PullRequest.number) {
+        return $null
+    }
+
+    $url = "{0}/api/v3/repos/{1}/{2}/issues/{3}/comments" -f `
+        $CONFIG.GitBucketUrl, $Owner, $RepoName, $PullRequest.number
+
+    try {
+        $comments = ConvertTo-FlatArray -InputObject (Invoke-GitBucketGet -Url $url)
+
+        $comment = $comments |
+            Where-Object {
+                ($_.PSObject.Properties.Name -contains "body") -and
+                (-not [string]::IsNullOrWhiteSpace([string]$_.body))
+            } |
+            Select-Object -First 1
+
+        if ($null -ne $comment) {
+            return ([string]$comment.body).Trim()
+        }
+    }
+    catch {
+        Write-Log "Não foi possível buscar comentário do PR #$($PullRequest.number) em $Owner/$RepoName." "DEBUG"
+    }
+
+    return $null
+}
+
+# Função: Test-TitleLooksLikeBranch
+# Objetivo: Identificar título automático baseado no nome da branch
+function Test-TitleLooksLikeBranch {
+    param(
+        [string]$Title,
+        [string]$HeadBranch
+    )
+
+    if ([string]::IsNullOrWhiteSpace($Title) -or [string]::IsNullOrWhiteSpace($HeadBranch)) {
+        return $false
+    }
+
+    $t = $Title.Trim().ToLowerInvariant()
+    $b = $HeadBranch.Trim().ToLowerInvariant()
+
+    $bWithoutPrefix = $b -replace "^(feature|bugfix|hotfix|release)/", ""
+    $bTitleStyle = (Get-Culture).TextInfo.ToTitleCase(($b -replace "/", " " -replace "-", " "))
+
+    return (
+        $t -eq $b -or
+        $t -eq ($b -replace "/", " ") -or
+        $t -eq $bWithoutPrefix -or
+        $Title.Trim() -eq $bTitleStyle
+    )
+}
+
+# Função: Get-PullRequestDisplayTitle
+# Objetivo: Usar comentário quando título for automático; caso contrário manter título original
+function Get-PullRequestDisplayTitle {
+    param(
+        [string]$Owner,
+        [string]$RepoName,
+        $PullRequest,
+        [string]$HeadBranch
+    )
+
+    $title = Get-PullRequestRawTitle -PullRequest $PullRequest -HeadBranch $HeadBranch
+
+    if (Test-TitleLooksLikeBranch -Title $title -HeadBranch $HeadBranch) {
+        $comment = Get-PullRequestFirstComment `
+            -Owner $Owner `
+            -RepoName $RepoName `
+            -PullRequest $PullRequest
+
+        if (-not [string]::IsNullOrWhiteSpace($comment)) {
+            return $comment
+        }
+    }
+
+    return $title
+}
+
+# Função: Get-PullRequestLastCommitDate
+# Objetivo: Buscar data do último commit associado ao PR
+function Get-PullRequestLastCommitDate {
+    param(
+        [string]$Owner,
+        [string]$RepoName,
+        $PullRequest
+    )
+
+    if ($null -eq $PullRequest.number) {
+        return $null
+    }
+
+    $url = "{0}/api/v3/repos/{1}/{2}/pulls/{3}/commits" -f `
+        $CONFIG.GitBucketUrl, $Owner, $RepoName, $PullRequest.number
+
+    try {
+        $commits = ConvertTo-FlatArray -InputObject (Invoke-GitBucketGet -Url $url)
+
+        $dates = foreach ($commit in $commits) {
+            if (
+                ($commit.PSObject.Properties.Name -contains "commit") -and
+                ($null -ne $commit.commit) -and
+                ($commit.commit.PSObject.Properties.Name -contains "committer") -and
+                ($null -ne $commit.commit.committer) -and
+                ($commit.commit.committer.PSObject.Properties.Name -contains "date")
+            ) {
+                [datetime]$commit.commit.committer.date
+            }
+            elseif (
+                ($commit.PSObject.Properties.Name -contains "commit") -and
+                ($null -ne $commit.commit) -and
+                ($commit.commit.PSObject.Properties.Name -contains "author") -and
+                ($null -ne $commit.commit.author) -and
+                ($commit.commit.author.PSObject.Properties.Name -contains "date")
+            ) {
+                [datetime]$commit.commit.author.date
+            }
+        }
+
+        if ($dates.Count -gt 0) {
+            return ($dates | Sort-Object -Descending | Select-Object -First 1)
+        }
+    }
+    catch {
+        Write-Log "Não foi possível buscar commits do PR #$($PullRequest.number) em $Owner/$RepoName." "DEBUG"
+    }
+
+    return $null
+}
+
 # Função: Get-CompareInfo
 # Objetivo: Obter ahead/behind via endpoint compare, se disponível
 function Get-CompareInfo {
@@ -570,6 +767,44 @@ function Get-CompareInfo {
     }
 }
 
+# Função: Get-PendingPublicationStatus
+# Objetivo: Classificar PR por dias desde o último commit
+function Get-PendingPublicationStatus {
+    param(
+        [Nullable[datetime]]$LastCommitDate
+    )
+
+    if ($null -eq $LastCommitDate) {
+        return "sem-data"
+    }
+
+    $days = [int]((Get-Date) - $LastCommitDate).TotalDays
+
+    if ($days -le $CONFIG.PendentePublicação.Verde) {
+        return "verde"
+    }
+
+    if ($days -le $CONFIG.PendentePublicação.Amarelo) {
+        return "amarelo"
+    }
+
+    return "vermelho"
+}
+
+# Função: Get-PendingPublicationDays
+# Objetivo: Calcular dias desde o último commit associado ao PR
+function Get-PendingPublicationDays {
+    param(
+        [Nullable[datetime]]$LastCommitDate
+    )
+
+    if ($null -eq $LastCommitDate) {
+        return $null
+    }
+
+    return [int]((Get-Date) - $LastCommitDate).TotalDays
+}
+
 # Função: Test-ShouldIncludeResult
 # Objetivo: Aplicar regra final de inclusão no resultado
 function Test-ShouldIncludeResult {
@@ -614,17 +849,20 @@ function New-HtmlReport {
 
     # Monta linhas da tabela
     $rows = $Items | ForEach-Object {
-        $repo   = ConvertTo-HtmlSafeText $_.Repository
-        $pr     = ConvertTo-HtmlSafeText $_.PullRequestNo
-        $author = ConvertTo-HtmlSafeText $_.Author
-        $title  = ConvertTo-HtmlSafeText $_.PullRequestTitle
-        $head   = ConvertTo-HtmlSafeText $_.HeadBranch
-        $base   = ConvertTo-HtmlSafeText $_.BaseBranch
-        $behind = ConvertTo-HtmlSafeText $_.BehindBy
-        $ahead  = ConvertTo-HtmlSafeText $_.AheadBy
-        $url    = ConvertTo-HtmlSafeText $_.HtmlUrl
+        $repo       = ConvertTo-HtmlSafeText $_.Repository
+        $pr         = ConvertTo-HtmlSafeText $_.PullRequestNo
+        $author     = ConvertTo-HtmlSafeText $_.Author
+        $title      = ConvertTo-HtmlSafeText $_.PullRequestTitle
+        $head       = ConvertTo-HtmlSafeText $_.HeadBranch
+        $base       = ConvertTo-HtmlSafeText $_.BaseBranch
+        $lastCommit = if ($null -ne $_.LastCommitDate) { ConvertTo-HtmlSafeText ([datetime]$_.LastCommitDate).ToString("dd/MM/yyyy HH:mm") } else { "" }
+        $pendingDays = ConvertTo-HtmlSafeText $_.PendingPublicationDays
+        $status     = ConvertTo-HtmlSafeText $_.PendingPublicationStatus
+        $behind     = ConvertTo-HtmlSafeText $_.BehindBy
+        $ahead      = ConvertTo-HtmlSafeText $_.AheadBy
+        $url        = ConvertTo-HtmlSafeText $_.HtmlUrl
 
-        "<tr><td>$repo</td><td>$pr</td><td>$author</td><td>$title</td><td>$head</td><td>$base</td><td>$behind</td><td>$ahead</td><td><a href='$url'>Abrir</a></td></tr>"
+        "<tr class='$status'><td>$repo</td><td>$pr</td><td>$author</td><td>$title</td><td>$head</td><td>$base</td><td>$lastCommit</td><td>$pendingDays</td><td>$status</td><td>$behind</td><td>$ahead</td><td><a href='$url'>Abrir</a></td></tr>"
     }
 
     # HTML (IMPORTANTE: delimitadores sem indentação)
@@ -650,12 +888,41 @@ th, td {
 th {
     background: #eeeeee;
 }
+tr.verde {
+    background: #e8f5e9;
+}
+tr.amarelo {
+    background: #fff8e1;
+}
+tr.vermelho {
+    background: #ffebee;
+}
+tr.sem-data {
+    background: #eeeeee;
+}
+.legenda {
+    margin: 12px 0 18px 0;
+    font-size: 13px;
+}
+.legenda span {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid #cccccc;
+    margin-right: 8px;
+}
 </style>
 </head>
 <body>
 <h2>GitBucket PR Audit</h2>
 <p>Gerado em: $generatedAt</p>
 <p>Branch base: $($CONFIG.BaseBranch)</p>
+
+<div class="legenda">
+    <span class="verde">Verde: até $($CONFIG.PendentePublicação.Verde) dias</span>
+    <span class="amarelo">Amarelo: até $($CONFIG.PendentePublicação.Amarelo) dias</span>
+    <span class="vermelho">Vermelho: acima de $($CONFIG.PendentePublicação.Amarelo) dias</span>
+    <span class="sem-data">Sem data: último commit indisponível</span>
+</div>
 
 <table>
 <tr>
@@ -665,6 +932,9 @@ th {
     <th>Título</th>
     <th>Branch Origem</th>
     <th>Branch Base</th>
+    <th>Último Commit</th>
+    <th>Dias</th>
+    <th>Status</th>
     <th>Behind</th>
     <th>Ahead</th>
     <th>Link</th>
@@ -687,7 +957,7 @@ if ([string]::IsNullOrWhiteSpace($CONFIG.Token) -or $CONFIG.Token -eq "SEU_TOKEN
     throw "Configure o token em `$CONFIG.Token antes de executar."
 }
 
-Initialize-OutputDir
+New-OutputDir
 
 Write-Log "Iniciando auditoria de PRs no GitBucket"
 Write-Log "RepoScope: $($CONFIG.RepoScope)"
@@ -749,6 +1019,20 @@ foreach ($r in $repos) {
             continue
         }
 
+        $displayTitle = Get-PullRequestDisplayTitle `
+            -Owner $owner `
+            -RepoName $repo `
+            -PullRequest $pr `
+            -HeadBranch $headBranch
+
+        $lastCommitDate = Get-PullRequestLastCommitDate `
+            -Owner $owner `
+            -RepoName $repo `
+            -PullRequest $pr
+
+        $pendingPublicationStatus = Get-PendingPublicationStatus -LastCommitDate $lastCommitDate
+        $pendingPublicationDays   = Get-PendingPublicationDays -LastCommitDate $lastCommitDate
+
         if ($CONFIG.EnableCompareCheck) {
             $compare = Get-CompareInfo `
                 -Owner $owner `
@@ -768,24 +1052,28 @@ foreach ($r in $repos) {
         }
 
         $item = [pscustomobject]@{
-            Repository       = "$owner/$repo"
-            PullRequestNo    = $(if ($pr.PSObject.Properties.Name -contains "number") { $pr.number } else { $null })
-            PullRequestTitle = $(if ($pr.PSObject.Properties.Name -contains "title") { $pr.title } else { $null })
-            PullRequestState = $(if ($pr.PSObject.Properties.Name -contains "state") { $pr.state } else { $null })
-            Author           = Get-PullRequestAuthor -PullRequest $pr
-            HeadBranch       = $headBranch
-            BaseBranch       = $CONFIG.BaseBranch
-            CreatedAt        = $(if ($pr.PSObject.Properties.Name -contains "created_at") { $pr.created_at } else { $null })
-            UpdatedAt        = $(if ($pr.PSObject.Properties.Name -contains "updated_at") { $pr.updated_at } else { $null })
-            HtmlUrl          = $(if ($pr.PSObject.Properties.Name -contains "html_url") { $pr.html_url } else { $null })
+            Repository               = "$owner/$repo"
+            PullRequestNo            = $(if ($pr.PSObject.Properties.Name -contains "number") { $pr.number } else { $null })
+            PullRequestTitle         = $displayTitle
+            PullRequestState         = $(if ($pr.PSObject.Properties.Name -contains "state") { $pr.state } else { $null })
+            Author                   = Get-PullRequestAuthor -PullRequest $pr
+            HeadBranch               = $headBranch
+            BaseBranch               = $CONFIG.BaseBranch
+            CreatedAt                = $(if ($pr.PSObject.Properties.Name -contains "created_at") { $pr.created_at } else { $null })
+            UpdatedAt                = $(if ($pr.PSObject.Properties.Name -contains "updated_at") { $pr.updated_at } else { $null })
+            HtmlUrl                  = $(if ($pr.PSObject.Properties.Name -contains "html_url") { $pr.html_url } else { $null })
 
-            CompareEnabled   = $CONFIG.EnableCompareCheck
-            CompareSupported = $compare.CompareSupported
-            CompareResult    = $compare.CompareResult
-            CompareStatus    = $compare.CompareStatus
-            AheadBy          = $compare.AheadBy
-            BehindBy         = $compare.BehindBy
-            CompareError     = $compare.ErrorMessage
+            LastCommitDate           = $lastCommitDate
+            PendingPublicationDays   = $pendingPublicationDays
+            PendingPublicationStatus = $pendingPublicationStatus
+
+            CompareEnabled           = $CONFIG.EnableCompareCheck
+            CompareSupported         = $compare.CompareSupported
+            CompareResult            = $compare.CompareResult
+            CompareStatus            = $compare.CompareStatus
+            AheadBy                  = $compare.AheadBy
+            BehindBy                 = $compare.BehindBy
+            CompareError             = $compare.ErrorMessage
         }
 
         if (Test-ShouldIncludeResult -Item $item) {
@@ -802,7 +1090,10 @@ if ($results.Count -eq 0) {
     Write-Log "Nenhum PR encontrado com os filtros atuais." "WARN"
 }
 else {
-    $ordered = $results | Sort-Object Repository, PullRequestNo
+    $ordered = $results | Sort-Object `
+    @{ Expression = { if ($null -eq $_.PendingPublicationDays) { -1 } else { [int]$_.PendingPublicationDays } }; Descending = $true },
+    Repository,
+    PullRequestNo
 
     Write-Host ""
     Write-Host "================ RESULTADO ================"
@@ -811,8 +1102,12 @@ else {
         Repository,
         PullRequestNo,
         Author,
+        PullRequestTitle,
         HeadBranch,
         BaseBranch,
+        LastCommitDate,
+        PendingPublicationDays,
+        PendingPublicationStatus,
         BehindBy,
         AheadBy,
         CompareSupported,
@@ -844,6 +1139,10 @@ else {
     $compareNotSupported   = ($ordered | Where-Object { $_.CompareSupported -eq $false } | Measure-Object).Count
     $behindCount           = ($ordered | Where-Object { $_.BehindBy -gt 0 } | Measure-Object).Count
     $alignedCount          = ($ordered | Where-Object { $_.CompareSupported -eq $true -and $_.BehindBy -eq 0 } | Measure-Object).Count
+    $verdeCount            = ($ordered | Where-Object { $_.PendingPublicationStatus -eq "verde" } | Measure-Object).Count
+    $amareloCount          = ($ordered | Where-Object { $_.PendingPublicationStatus -eq "amarelo" } | Measure-Object).Count
+    $vermelhoCount         = ($ordered | Where-Object { $_.PendingPublicationStatus -eq "vermelho" } | Measure-Object).Count
+    $semDataCount          = ($ordered | Where-Object { $_.PendingPublicationStatus -eq "sem-data" } | Measure-Object).Count
 
     Write-Host ""
     Write-Host "================ RESUMO ================"
@@ -853,6 +1152,10 @@ else {
     Write-Host "Compare indisponível            : $compareNotSupported"
     Write-Host "Behind > 0                      : $behindCount"
     Write-Host "Behind = 0                      : $alignedCount"
+    Write-Host "Verde                           : $verdeCount"
+    Write-Host "Amarelo                         : $amareloCount"
+    Write-Host "Vermelho                        : $vermelhoCount"
+    Write-Host "Sem data                        : $semDataCount"
     Write-Host "========================================"
 
     Write-Host ""
