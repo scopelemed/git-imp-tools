@@ -9,6 +9,10 @@
         "path": "../emed-scripts/scripts-banco-dados"
     },
     {
+        "name": "00 • Net LDM",
+        "path": "../emed-scripts/net-ldm"
+    },    
+    {
         "name": "01 • VB LIB",
         "path": "../emed-com/vb-lib"
     },
@@ -145,7 +149,25 @@
     },
     "[sql]": {
       "editor.formatOnSave": false
-    }
+    },
+    "sqltools.connections": [
+        {
+            "connectionMethod": "DSN",
+            "odbcOptions": {
+                "dbms": "Microsoft SQL Server",
+                "showTblRecords": "DBMS",
+                "inaccessibleDatabase": true,
+                "inaccessibleSchema": true
+            },
+            "previewLimit": 50,
+            "driver": "SQLTools ODBC Driver",
+            "name": "EMEDBaseDEV",
+            "group": "SQLServer2000",
+            "username": "usremed_003901",
+            "password": "usr",
+            "dsnString": "Base3901"
+        }
+    ]
   },
   "extensions": {
     "recommendations": [

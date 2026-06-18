@@ -16,6 +16,10 @@
     "workbench.iconTheme": "vscode-icons",
     "files.exclude": {
       "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
       "**/.vs": true,
       "**/.vscode": false,
       "**/bin": true,
@@ -26,7 +30,8 @@
       "**/*.pdb": true,
       "**/*.exe": true,
       "**/*.zip": true,
-      "**/*.rar": true
+      "**/*.rar": true,
+      "apoio-emed/show-erro.asp": true
     },
     "search.exclude": {
       "**/bin": true,
@@ -34,7 +39,8 @@
       "**/node_modules": true,
       "**/dist": true,
       "**/vb-vbp-xxxxxxxxxxxxx": true
-    }
+    },
+    "explorerExclude.backup": {}
   },
   "extensions": {
     "recommendations": [

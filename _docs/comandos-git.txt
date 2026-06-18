@@ -11,10 +11,22 @@ git branch -d feature                       --> Excluir branch local
 git merge feature                          	--> Mesclar arquivos da branch "feature" na branch de origem (resolver conflitos)
 git merge --abort                           --> Descarta último merge
 
+
+#############################################################################################################################
+# considerar/não considerar um arquivo local nas atualizações             																									#
+#############################################################################################################################
+# para NÃO considerar
+git update-index --assume-unchanged LEMED.vbp
+git update-index --skip-worktree LEMED.vbp
+# para SIM considerar
+git update-index --no-assume-unchanged LEMED.vbp
+git update-index --no-skip-worktree LEMED.vbp
+
+de datas e efetivação no caixa lançamentos link pagammentos
 #############################################################################################################################
 # Apagar um arquivo da branch remota																									#
 #############################################################################################################################
-ggit rm --cached LEMED.vbw				    			--> Remover arquivo
+git rm --cached LEMED.vbw				    			--> Remover arquivo
 git commit -m "msg"                         --> Comitar branch local
 git push                                    --> Atualizar branch remota
 

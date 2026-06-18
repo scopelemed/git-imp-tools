@@ -9,35 +9,43 @@
       "path": "../emed-relatorios/rel-LEFIN_RelMovCaixaAnaliticoByConta"
     },
     {
-      "name": "62 • Relatorio Agendamento AgendamentoResumido",
+      "name": "62 • Relatorio Agendamento Agendamento Resumido",
       "path": "../emed-relatorios/rel-LEMED_Agendamento_RelAgendamentoResumido"
     },
     {
-      "name": "63 • Relatorio FaturaConvenio FaturaConvenio",
+      "name": "63 • Relatorio Agendamento Boletim Atendimento",
+      "path": "../emed-relatorios/rel-LEMED_boletim_atendimento"
+    },
+    {
+      "name": "64 • Relatorio Agendamento Comprovate e Preparo",
+      "path": "../emed-relatorios/rel-LEMED_AgendamentoPerfil_ComprovanteAgendamentoPreparo"
+    },
+    {
+      "name": "65 • Relatorio FaturaConvenio FaturaConvenio",
       "path": "../emed-relatorios/rel-LEMED_FaturaConvenio_RelFaturaConvenio"
     },
     {
-      "name": "63 • Relatorio FaturaConvenio FaturaConvenioPaciente",
+      "name": "66 • Relatorio FaturaConvenio FaturaConvenioPaciente",
       "path": "../emed-relatorios/rel-LEMED_FaturaConvenio_RelFaturaConvenioPaciente"
     },
     {
-      "name": "64 • Relatorio Requisicao GuiaTissConsultaV3",
+      "name": "67 • Relatorio Requisicao GuiaTissConsultaV3",
       "path": "../emed-relatorios/rel-LEMED_Requisicao_GuiaTissConsulta_v3"
     },
     {
-      "name": "64 • Relatorio Requisicao GuiaTissConsultaV4",
+      "name": "68 • Relatorio Requisicao GuiaTissConsultaV4",
       "path": "../emed-relatorios/rel-LEMED_Requisicao_GuiaTissConsulta_v4"
     },
     {
-      "name": "65 • Relatorio Estoque PosicaoEstoque",
+      "name": "69 • Relatorio Estoque PosicaoEstoque",
       "path": "../emed-relatorios/rel-LESTQ_MovEstoque_PosicaoEstoque"
     },
     {
-      "name": "65 • Relatorio Estoque ListaSaldos",
+      "name": "70 • Relatorio Estoque ListaSaldos",
       "path": "../emed-relatorios/rel-LESTQ_MovEstoqueListaSaldos"
     },
     {
-      "name": "66 • Relatorio Pessoa ListagemGeral",
+      "name": "71 • Relatorio Pessoa ListagemGeral",
       "path": "../emed-relatorios/rel-LNUC_Pessoa_ListagemGeral"
     }
   ],
