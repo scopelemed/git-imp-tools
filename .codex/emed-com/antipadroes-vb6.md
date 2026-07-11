@@ -1,0 +1,1 @@
+E:/Projetos/git-imp/emed-com/docs-ia/antipadroes-vb6.md

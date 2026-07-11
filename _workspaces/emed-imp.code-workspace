@@ -3,10 +3,11 @@
     { "name": "0001 • Workspaces", "path": "../_workspaces" },
     { "name": "0002 • Scripts", "path": "../_scripts" },
     { "name": "0003 • Docs", "path": "../_docs" },
-    { "name": "0099 • .vscode", "path": "../.vscode" }
+    { "name": "0098 • .vscode", "path": "../.vscode" }
+    { "name": "0099 • .codex", "path": "../.codex" }
   ],
   "settings": {
-    "files.encoding": "windows1252",
+    "files.encoding": "utf8",
     "workbench.iconTheme": "vscode-icons",
 
     "git.enabled": true,

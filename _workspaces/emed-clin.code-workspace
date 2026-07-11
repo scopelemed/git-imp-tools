@@ -41,6 +41,10 @@
       "path": "../emed-dotnet/.net-emedsivoeservice"
     },
     {
+      "name": "45 • Pagamentos",
+      "path": "../emed-dotnet/.net-emedpagamentos"
+    },
+    {
       "name": "50 • SMS",
       "path": "../emed-dotnet/.net-emedsms"
     },

@@ -1,0 +1,14 @@
+# Modelo utilizado pelo Codex
+model = "gpt-5.6-sol" # Modelo recomendado para análises complexas
+# model = "gpt-5.6-terra" # Modelo recomendado para análises simples
+
+# Política de aprovaçãoo
+approval_policy = "on-request"
+
+# Sandbox limitado ao workspace
+sandbox_mode = "workspace-write"
+
+[sandbox_workspace_write]
+
+# Impede acesso Internet durante a execução
+network_access = false

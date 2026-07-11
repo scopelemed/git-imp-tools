@@ -1,0 +1,1 @@
+E:/Projetos/git-imp/emed-com/docs-ia/exemplos-reais-vb6.md
