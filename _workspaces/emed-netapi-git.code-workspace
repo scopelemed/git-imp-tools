@@ -45,6 +45,10 @@
       "path": "../emed-dotnet/.net-emedpagamentos"
     },
     {
+      "name": "46 • IA",
+      "path": "../emed-dotnet/.net-emedia"
+    },
+    {
       "name": "50 • SMS",
       "path": "../emed-dotnet/.net-emedsms"
     },
