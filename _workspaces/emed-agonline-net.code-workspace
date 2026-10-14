@@ -17,6 +17,10 @@
       "path": "../emed-dotnet/.net-emedservices"
     },
     {
+      "name": "40 • EmiteNFSeService",
+      "path": "../emed-dotnet/.net-emedemitenfeservice"
+    },
+    {
       "name": "43 • AnnaService",
       "path": "../emed-dotnet/.net-emedannaservice"
     },
